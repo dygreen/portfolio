@@ -37,6 +37,7 @@ body{
 
 /* ================= HEADER ================= */
 header#top_gnb{
+  color: pink;
   position: fixed;
   top: 0;
   left: 0;
