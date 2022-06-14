@@ -124,29 +124,77 @@ window.addEventListener("DOMContentLoaded", function(){
 
 
   // publishing: 가로 스크롤 구현
-  $(window).scroll(function () {
+ /*  $(window).scroll(function () {
     let scroll = $(window).scrollTop();
     // let offset = scroll - $("#pub").offset().top;
     let offset = scroll - $("#pub .row_box").offset().top;
     // console.log(offset);
     console.log(scroll);
 
-    /* let scrollLeft = $(".row_box").scrollLeft();
-    console.log(scrollLeft); */
+    let scrollLeft = $(".row_box").scrollLeft();
+    console.log(scrollLeft);
 
     if ( scroll > $("#pub .row_box").offset().top ) {
         $("#pub .row_box>li").css("left", -offset);
         // $("#pub .row_box").css("transform", `translateX(${-offset}px)`);
     }
 
-    /* if ( scroll >= 4786 ) {
+    if ( scroll >= 4786 ) {
         // $("#pub .row_box").css("left", -offset);
         // $("#pub .row_box").css("transform", `translateX(${-offset}px)`);
         let moveing = scrollLeft + scroll;
         $("#pub .row_box").css("transform", `translateX(${-moveing}px)`);
-    } */
+    }
   });
-
+ */
 
 });
 
+/* 
+$(function() {
+
+  $("body").mousewheel(function(event, delta) {
+    console.log(delta);
+
+    this.scrollLeft -= (delta * 300);
+    
+    event.preventDefault();
+
+  });
+}); */
+
+$(window).on('mousewheel',function(e, delta){		
+  var wheelDelta = e.originalEvent.wheelDelta;	
+  console.log(wheelDelta);	
+  $(window).scroll(function(){
+    let scroll = $(this).scrollTop();
+    let offset = scroll - $("#pub").offset().top;
+    console.log(offset);
+
+    if(wheelDelta > 0){			
+      console.log("up");			
+      // $('.row_box').scrollLeft(-wheelDelta + $('.row').scrollLeft());		
+      // $('.row_box').css('left', -wheelDelta + $('.row').scrollLeft());
+      $('.row_box').css('right', -wheelDelta + offset);
+    }else{		
+      console.log("down");			
+      // $('.row_box').scrollLeft(-wheelDelta + $('.row').scrollLeft());		
+      // $('.row_box').css('left', wheelDelta + $('.row').scrollLeft());
+      $('.row_box').css('right', -wheelDelta + offset);
+    }
+
+
+  });
+  // console.log(e);
+  // console.log(delta);
+  // console.log($('.row').scrollLeft());
+});
+
+/* $('.row_box').on('mousewheel DOMMouseScroll', function(event){
+
+  var delta = Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
+
+  $(this).scrollLeft( $(this).scrollLeft() - ( delta * 40 ) );
+  event.preventDefault();
+
+}); */
