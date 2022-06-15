@@ -748,58 +748,48 @@ section h2.active:before{
 
 /* ================= 3. PUBLISHING ================= */
 #pub{
-  position: sticky;
-  left: 0;
-  width: 100%;
-  /* width: 5000px; */
-  height: 100vh;
-  /* height: 5000px; */
+  position: relative;
+  width: 100vw;
+  height: 130vh;
   background: var(--white-color);
   color: var(--black-color);
 }
 
 #pub h2{
+  margin: 10vh 0 5vh;
+  text-align: center;
   color: transparent;
   -webkit-text-stroke: 0.5px var(--black-color);
-  padding-bottom: 10vh;
 }
 
 #pub h2:before{
+  text-align: left;
   color: var(--black-color);
 }
 
 /* 보여지는 화면 설정 */
 #pub .row{
-  width: 1400px;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 10vh 0;
-  /* overflow: scroll; */
-   /* overflow-x: auto;  */
-  /* overflow-y: hidden; */
-  position: relative;
-  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 120vh;
 }
 
-/* 전체 긴 박스 크기 */
 #pub .row_box{
   display: flex;
-  width: 4600px;
-  height: 100vh;
   position: relative;
-  white-space: nowrap;
-  /* overflow-x: scroll;  */
-  /* overflow-y: hidden; */
-  /* overflow: scroll; */
-  background: pink;
+  width: 100%;
+  height: 1000px;
+  
 }
 
-/* 긴 박스 속 요소 */
 #pub .row_box>li{
-  position: relative;
   display: flex;
-  width: 1500px;
-  height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-left: 250px;
+  padding-left: 50px;
 }
 
 #pub>ul>li .pub_left_box{
@@ -988,6 +978,344 @@ section h2.active:before{
 }
 
 /* ================= 4. RESPONSIVE ================= */
+#respon{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 40vh;
+  position: relative;
+}
+
+#respon h2{
+  margin: 20vh 0 10vh;
+}
+
+#respon>ul>li{
+  display: flex;
+  margin-top: 10vh;
+}
+
+#respon>ul>li .respon_left_box{
+  width: 50%;
+}
+#respon>ul>li .respon_right_box{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  top: 70px;
+  /* transform: translateY(-30px); */
+}
+
+/* ** 왼쪽 박스 ** */
+#respon .device{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -30px;
+}
+
+#respon .device li{
+  position: absolute;
+}
+
+#respon .work_result{
+  position: absolute;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#respon .work_result::-webkit-scrollbar {
+  width: 5px;
+}
+
+#respon .work_result::-webkit-scrollbar-thumb {
+  background-color: #67adff;
+}
+
+#respon .work_result::-webkit-scrollbar-track {
+  background-color: var(--grey-color);
+}
+
+/* pc */
+#respon .bg_pc{
+  top: -50px;
+  margin-left: 350px;
+}
+
+/* 배경 이미지 */
+#respon .bg_pc>img{
+  height: 650px;
+}
+
+#respon .bg_pc .work_result{
+  width: 635px;
+  height: 360px;
+  top: 86px;
+  left: 180px;
+
+}
+
+/* 결과물 이미지 */
+#respon .work_pc{
+  width: 100%;
+  height: auto;
+}
+
+/* tablet */
+#respon .bg_ta{
+  top: 170px;
+  margin-left: -400px;
+}
+
+/* 배경 이미지 */
+#respon .bg_ta>img{
+  height: 400px;
+}
+
+#respon .bg_ta .work_result{
+  width: 256px;
+  height: 363px;
+  top: 19px;
+  left: 40px;
+  border-radius: 5px;
+}
+
+/* 결과물 이미지 */
+#respon .work_ta{
+  width: 100%;
+  height: auto;
+}
+
+/* mobile */
+#respon .bg_mo{
+  top: 270px;
+  right: 300px;
+  /* left: 100px; */
+}
+
+/* 배경 이미지 */
+#respon .bg_mo>img{
+  height: 300px;
+}
+
+#respon .bg_mo .work_result{
+  width: 131px;
+  height: 270px;
+  top: 19px;
+  left: 14px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* 결과물 이미지 */
+#respon .work_mo{
+  width: 100%;
+  height: auto;
+  z-index: 999;
+}
+
+/* btns */
+#respon .btns{
+  display: flex;
+  position: absolute;
+  bottom: 250px;
+  transform: translateX(21%);
+}
+
+#respon .btns li{
+  font-family: var(--font-accent);
+  font-size: 22px;
+  width: 200px;
+  height: 50px;
+  border: 1px solid #555;
+  text-align: center;
+  line-height: 50px;
+  background: #b6d7ff;
+  color: var(--black-color);
+  margin-right: 10px;
+  transition: all 0.4s;
+  z-index: 100;
+}
+
+#respon .btns li:hover{
+  color: var(--white-color);
+  background: #555;
+}
+
+
+
+/* #respon .btns li:first-child{
+  left: 70px;
+}
+
+#respon .btns li:nth-child(2){
+  left: 250px;
+}
+
+#respon .btns li:last-child{
+  left: 465px;
+}
+ */
+
+/* ** 오른쪽 박스 ** */
+/* 프로젝트 설명 박스 */
+#respon .info_box{
+  width: 65%;
+  border: 1px solid var(--grey-color);
+  
+  box-sizing: border-box;
+}
+
+#respon .info_box>div{
+  padding: 5px 25px;
+  display: flex;
+}
+
+#respon .info_box .service{
+  display: block;
+}
+
+#respon .info_box>div:first-of-type{
+  padding-top: 30px;
+}
+
+#respon .info_box>div:last-of-type{
+  padding-bottom: 30px;
+}
+
+/* 설명 박스: 카테고리 */
+#respon h5{
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  line-height: 33px;
+  font-size: 16px;
+  font-weight: 500;
+  background: #1c1c1c;
+  border: 1px solid #555;
+  box-sizing: border-box;
+}
+
+/* 설명 박스: 설명 */
+#respon .subs{
+  padding: 3px 8px;
+  padding-left: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999;
+}
+
+#respon .service ul{
+  position: relative;
+  left: 120px;
+  top: -50px;
+  margin-top: 15px;
+  padding: 0;
+}
+
+#respon .service ul li{
+  font-weight: 300;
+  list-style-type: disc;
+  list-style-position: inside;
+  line-height: 35px;
+}
+
+#respon .tool ul{
+  display: flex;
+}
+
+#respon .tool ul li{
+  margin-right: 20px;
+}
+
+/* 기여도 */
+#respon .work .subs>span{
+  margin-right: 5px;
+}
+
+#respon .work .line{
+  display: inline-block;
+  width: 150px;
+  height: 15px;
+  border: 1px solid #666;
+  transform: translateY(3px);
+  position: relative;
+}
+
+#respon .work .bar{
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #b6d7ff;
+  transition: all 1s;
+  z-index: 1000;
+}
+
+#respon .work .per{
+  display: inline-block;
+  width: 10%;
+  transform: translateY(1px);
+  text-align: center;
+}
+
+/* 링크 */
+#respon .link{
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #555;
+}
+
+#respon .link p{
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+}
+
+#respon .link ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+#respon .link ul li{
+  font-family: var(--font-accent);
+  font-size: 24px;
+  width: 192px;
+  height: 50px;
+  border: 2px solid #555;
+  text-align: center;
+  line-height: 50px;
+  color: #b6d7ff;
+  position: relative;
+}
+
+/* link 배경 설정 */
+#respon .link ul li:before{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background: #b6d7ff;
+  transition: all 0.4s;
+  z-index: -1;
+}
+
+#respon .link ul li:hover{
+  color: var(--black-color);
+}
+
+#respon .link ul li:hover:before{
+  height: 100%;
+}
+
 
 
 /* ================= 5. MOBILE ================= */

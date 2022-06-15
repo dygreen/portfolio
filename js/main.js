@@ -92,7 +92,7 @@ window.addEventListener("DOMContentLoaded", function(){
   });
 
 
-  // 2~6 프로젝트 넘버링 효과
+  // front: 프로젝트 넘버링 효과
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
 
@@ -148,6 +148,38 @@ window.addEventListener("DOMContentLoaded", function(){
   });
  */
 
+  $(window).scroll(function () {
+    let scrollTop = $(window).scrollTop();
+    let offset = scrollTop - $(".row_box").offset().top;
+    console.log(scrollTop);
+    console.log(offset);
+
+    if (scrollTop > $(".row_box").offset().top) {
+        $(".row_box>li").css("left", -offset);
+      } else {
+      $(".row_box>li").css("left", -offset);
+    }
+  });
+
+  /* $(window).scroll(function(){
+    let scrollLeft = $(".row_box>li").scrollLeft();
+    console.log(scrollLeft);
+    
+    $(".row").mousewheel(function(e){
+    let wheelDelta = e.originalEvent.wheelDelta;
+
+      if(wheelDelta > 0){			
+        console.log("up");	
+        $(".row_box>li").scrollLeft(scrollLeft + 100);		
+      }else{		
+        console.log("down");			
+        $(".row_box>li").scrollLeft(scrollLeft - 100);		
+      }
+    });
+  }); */
+
+
+
 });
 
 /* 
@@ -163,32 +195,38 @@ $(function() {
   });
 }); */
 
-$(window).on('mousewheel',function(e, delta){		
+/* $('.row').on('mousewheel',function(e, delta){		
   var wheelDelta = e.originalEvent.wheelDelta;	
-  console.log(wheelDelta);	
+  // console.log(wheelDelta);	
   $(window).scroll(function(){
     let scroll = $(this).scrollTop();
-    let offset = scroll - $("#pub").offset().top;
-    console.log(offset);
+    // let offset = scroll - $("#pub").offset().top;
+    let offset = scroll - $('.row_box').offset().top;
+    // console.log(offset);
+    // console.log(scroll);
+    let offsetX = $('.row_box>li').offset().left;
+    console.log(offsetX);
 
     if(wheelDelta > 0){			
       console.log("up");			
       // $('.row_box').scrollLeft(-wheelDelta + $('.row').scrollLeft());		
       // $('.row_box').css('left', -wheelDelta + $('.row').scrollLeft());
-      $('.row_box').css('right', -wheelDelta + offset);
+      $('.row_box>li').css('right', `${-wheelDelta + offset}px`);
+      // $('.row_box>li').css('right', wheelDelta -= scroll);
     }else{		
       console.log("down");			
       // $('.row_box').scrollLeft(-wheelDelta + $('.row').scrollLeft());		
       // $('.row_box').css('left', wheelDelta + $('.row').scrollLeft());
-      $('.row_box').css('right', -wheelDelta + offset);
+      // $('.row_box>li').css('right', -wheelDelta + offset);
+      $('.row_box>li').css('right', `${-wheelDelta + offset}px`);
     }
 
 
-  });
+  }); */
   // console.log(e);
   // console.log(delta);
   // console.log($('.row').scrollLeft());
-});
+// });
 
 /* $('.row_box').on('mousewheel DOMMouseScroll', function(event){
 
