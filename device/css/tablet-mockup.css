@@ -1,0 +1,148 @@
+/* body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+} */
+
+.mockup .tablet-mockup {
+  background-color: #353535;
+  border: 1px solid #ddd;
+  width: 1000px;
+  height: 680px;  
+  position: relative;
+  border-radius: 30px;
+}
+
+.mockup .tablet-mockup:before {
+  content: '';
+  position: absolute;
+  width: 99%;
+  height: 98.5%;
+  border-radius: 27px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.mockup .tablet-mockup .iframe-url {
+  position: absolute;
+  width: 850px;
+  height: 640px;
+  background-color: #eee;
+  border: 1px solid #eee;
+  color: #000;
+  font-size: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.mockup .tablet-mockup .iframe-url iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.mockup .tablet-mockup .home-btn {
+  position: absolute;
+  width: 67px;
+  height: 640px;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+
+.mockup .tablet-mockup .home-btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 1px solid #666;
+  border-radius: 50%;
+}
+
+.mockup .tablet-mockup .home-btn span:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #333;
+  box-shadow: inset 0 0 10px rgba(179, 179, 179, 0.3);
+}
+
+.mockup .tablet-mockup .camera {
+  position: absolute;
+  width: 67px;
+  height: 640px;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
+
+.mockup .tablet-mockup .camera span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #666;
+}
+
+.mockup .tablet-mockup .volume {
+  position: absolute;
+  top: 100%;
+  left: 120px;
+  width: 170px;
+  height: 5px;
+}
+
+.mockup .tablet-mockup .volume span {
+  position: absolute;
+  width: 70px;
+  height: 5px;
+  border-radius: 5px 5px 0 0;
+  transform: rotate(180deg);
+}
+
+.mockup .tablet-mockup .volume span:nth-child(1) {
+  left: 0;
+}
+
+.mockup .tablet-mockup .volume span:nth-child(2) {
+  right: 0;
+}
+
+.mockup .tablet-mockup .power {
+  position: absolute;
+  bottom: 100%;
+  left: 200px;
+  width: 130px;
+  height: 5px;
+}
+
+.mockup .tablet-mockup .power span {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.mockup .tablet-mockup .volume span,
+.mockup .tablet-mockup .power span {
+  background-color: #3e3e3e;
+}
+/*# sourceMappingURL=tablet-mockup.css.map */

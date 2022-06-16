@@ -1,0 +1,139 @@
+/* body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+} */
+
+.mockup .mobile-mockup {
+  background-color: #353535;
+  border: 1px solid #ddd;
+  width: 430px;
+  height: 850px;
+  position: relative;
+  border-radius: 30px;
+}
+
+.mockup .mobile-mockup:before {
+  content: '';
+  position: absolute;
+  width: 97.5%;
+  height: 98.5%;
+  border-radius: 27px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.mockup .mobile-mockup .iframe-url {
+  position: absolute;
+  width: 400px;
+  height: 770px;
+  background-color: #eee;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  color: #000;
+  font-size: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup .mobile-mockup .iframe-url iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.mockup .mobile-mockup .camera {
+  position: absolute;
+  width: 400px;
+  height: 32px;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mockup .mobile-mockup .camera span {
+  position: absolute;
+  background-color: #666;
+}
+
+.mockup .mobile-mockup .camera span:nth-child(1) {
+  width: 70px;
+  height: 5px;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mockup .mobile-mockup .camera span:nth-child(2) {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 50%;
+  right: 30%;
+  transform: translateY(-50%);
+}
+
+.mockup .mobile-mockup .camera span:nth-child(2):before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  top: 50%;
+  right: 30%;
+  transform: translate(38%, -50%);
+  border: 1px solid #9f9f9f;
+  box-shadow: inset 0 0 10px rgba(179, 179, 179, 0.4);
+}
+
+.mockup .mobile-mockup .power {
+  position: absolute;
+  right: 0;
+  top: 180px;
+}
+
+.mockup .mobile-mockup .power span {
+  position: absolute;
+  width: 5px;
+  height: 70px;
+  border-radius: 0 5px 5px 0;
+}
+
+.mockup .mobile-mockup .volume {
+  position: absolute;
+  top: 110px;
+  right: 100%;
+  width: 5px;
+  height: 140px;
+}
+
+.mockup .mobile-mockup .volume span {
+  position: absolute;
+  width: 5px;
+  height: 60px;
+  border-radius: 0 5px 5px 0;
+  transform: rotate(180deg);
+}
+
+.mockup .mobile-mockup .volume span:nth-child(1) {
+  top: 0;
+}
+
+.mockup .mobile-mockup .volume span:nth-child(2) {
+  bottom: 0;
+}
+
+.mockup .mobile-mockup .power span,
+.mockup .mobile-mockup .volume span {
+  background-color: #3e3e3e;
+}
+/*# sourceMappingURL=mobile-mockup.css.map */

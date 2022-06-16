@@ -741,75 +741,98 @@ section h2.active:before{
   transform: translateY(-130%);
 }
 
+#front1 .desktop{
+  top: 120%;
+  transform: translateY(-120%);
+  position: relative;
+}
+
 #front .desktop img{
   height: 650px;
+}
+
+#front .notebook{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 100%;
+  transform: translateY(-100%);
+}
+
+#front .notebook img{
+  height: 500px;
+}
+
+#front .work_result{
+  position: absolute;
+  top: 86px;
+  left: 45px;
+}
+
+#front .work_result iframe{
+  width: 532px;
+  height: 350px;
 }
 
 
 /* ================= 3. PUBLISHING ================= */
 #pub{
   position: relative;
-  width: 100vw;
-  height: 130vh;
+  width: 5000px;
+  height: 6850px;
   background: var(--white-color);
   color: var(--black-color);
+  transition: all 0.5s;
 }
 
 #pub h2{
-  margin: 10vh 0 5vh;
-  text-align: center;
+  margin: 10vh 0 0 25vh;
+  padding-top: 7vh;
   color: transparent;
   -webkit-text-stroke: 0.5px var(--black-color);
 }
 
 #pub h2:before{
+  transform: translateY(6.9vh);
   text-align: left;
   color: var(--black-color);
 }
 
-/* 보여지는 화면 설정 */
-#pub .row{
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 120vh;
-}
-
 #pub .row_box{
   display: flex;
-  position: relative;
-  width: 100%;
-  height: 1000px;
-  
+  margin-left: 500px;
 }
 
 #pub .row_box>li{
   display: flex;
   position: relative;
-  width: 100%;
-  height: 100%;
-  margin-left: 250px;
+  width: 1500px;
+  height: 100vh;
+  margin: -20px 200px 0 350px;
   padding-left: 50px;
 }
 
 #pub>ul>li .pub_left_box{
   display: flex;
-  width: 50%;
+  width: 60%;
 }
 
 #pub>ul>li .pub_right_box{
-  width: 50%;
+  width: 40%;
 }
 
 /* ** 왼쪽 박스 ** */
 #pub .number_box{
   display: flex;
+  color: #9c836a;
   font-family: var(--font-accent);
+  transform: translateY(20px);
 }
 
 /* 숫자 */
 #pub .numbering{
-  font-size: 200px;
+  font-size: 160px;
 }
 
 /* 설명 */
@@ -817,7 +840,7 @@ section h2.active:before{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 62px;
+  margin-top: 35px;
   margin-left: 20px;
   font-weight: 400;
 }
@@ -827,24 +850,28 @@ section h2.active:before{
 }
 
 #pub .title .sub{
+  color: var(--black-color);
   font-family: none;
   font-size: 16px;
 }
 
-/* desktop 이미지 */
-#pub .desktop img{
-  transform: translate(-150px, -50px);
-  height: 650px;
+/* 목업 이미지 */
+#pub .work_result img{
+  height: 520px;
+  border: 1px solid #999;
+  box-sizing: border-box;
 }
 
 /* ** 오른쪽 박스 ** */
 #pub .info_box{
   width: 100%;
+  height: 520px;
   border: 1px solid var(--grey-color);
   box-sizing: border-box;
   position: relative;
-  top: 60%;
-  transform: translate(-40%,-60%);
+  top: 47%;
+  right: -15%;
+  transform: translateY(-47%);
 }
 
 #pub .info_box>div{
@@ -884,6 +911,10 @@ section h2.active:before{
   font-size: 16px;
   font-weight: 400;
   color: #999;
+}
+
+#pub .subs strong{
+  color: #9c836a;
 }
 
 #pub .service ul{
@@ -937,6 +968,7 @@ section h2.active:before{
   border: 2px solid #555;
   text-align: center;
   line-height: 50px;
+  color: #9c836a;
   position: relative;
 }
 
@@ -963,18 +995,22 @@ section h2.active:before{
 
 #pub .link ul li:hover:before{
   height: 100%;
-  background: var(--black-color);
+  background: #9c836a;
 }
 
 /* 1~3 컬러 설정 */
-#pub2 .number_box{color: #fad513;}
-#pub2 .link ul li:before{
-  background: #fad513;
+#pub2 .number_box{color: #ffb500;}
+#pub2 .subs strong{color: #ffb500;}
+#pub2 .link ul li{color: #ffb500;}
+#pub2 .link ul li:hover:before{
+  background: #ffb500;
 }
 
-#pub3 .number_box{color: #67adff;}
-#pub3 .link ul li:before{
-  background: #67adff;
+#pub3 .number_box{color: #35d32f;}
+#pub3 .subs strong{color: #35d32f;}
+#pub3 .link ul li{color: #35d32f;}
+#pub3 .link ul li:hover:before{
+  background: #35d32f;
 }
 
 /* ================= 4. RESPONSIVE ================= */
@@ -1078,8 +1114,8 @@ section h2.active:before{
 #respon .bg_ta .work_result{
   width: 256px;
   height: 363px;
-  top: 19px;
-  left: 40px;
+  top: 15px;
+  left: 20px;
   border-radius: 5px;
 }
 
@@ -1093,7 +1129,6 @@ section h2.active:before{
 #respon .bg_mo{
   top: 270px;
   right: 300px;
-  /* left: 100px; */
 }
 
 /* 배경 이미지 */
@@ -1119,12 +1154,12 @@ section h2.active:before{
 /* btns */
 #respon .btns{
   display: flex;
-  position: absolute;
-  bottom: 250px;
-  transform: translateX(21%);
 }
 
 #respon .btns li{
+  position: relative;
+  top: 580px;
+  transform: translateX(60%);
   font-family: var(--font-accent);
   font-size: 22px;
   width: 200px;
@@ -1135,6 +1170,7 @@ section h2.active:before{
   background: #b6d7ff;
   color: var(--black-color);
   margin-right: 10px;
+  cursor: pointer;
   transition: all 0.4s;
   z-index: 100;
 }
@@ -1145,26 +1181,43 @@ section h2.active:before{
 }
 
 
-
-/* #respon .btns li:first-child{
-  left: 70px;
+/* scss 목업 이미지 */
+#respon .modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  overflow: auto;
 }
 
-#respon .btns li:nth-child(2){
-  left: 250px;
+#respon .btns .device{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
-#respon .btns li:last-child{
-  left: 465px;
+iframe{
+  border: none;
 }
- */
+
+#respon .close{
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  color: #fff;
+}
+
 
 /* ** 오른쪽 박스 ** */
 /* 프로젝트 설명 박스 */
 #respon .info_box{
   width: 65%;
   border: 1px solid var(--grey-color);
-  
   box-sizing: border-box;
 }
 
@@ -1317,8 +1370,10 @@ section h2.active:before{
 }
 
 
-
 /* ================= 5. MOBILE ================= */
+
+
+
 
 
 /* ================= 6. PLANNING & DESIGN ================= */

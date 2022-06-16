@@ -50,6 +50,13 @@ function workFill(i){
 }
 
 
+// mobile: site 버튼 클릭시 모바일 해상도 창 띄우는 함수
+function openBrWindow(theURL, windName, features){
+  window.open(theURL, windName, features);
+}
+
+
+// =================== ready ===================
 window.addEventListener("DOMContentLoaded", function(){
   
   // 왼쪽 guide 내용 바꿈 + 각 섹션 타이틀 채워짐 효과
@@ -70,7 +77,7 @@ window.addEventListener("DOMContentLoaded", function(){
       // front
       guideChange(2);
       headlineChange(1);
-    } else if( scroll >= 4550 ){
+    } else if( scroll >= 4834 ){
       guideChange(3);
       headlineChange(2);
     }
@@ -123,116 +130,53 @@ window.addEventListener("DOMContentLoaded", function(){
   });
 
 
-  // publishing: 가로 스크롤 구현
- /*  $(window).scroll(function () {
-    let scroll = $(window).scrollTop();
-    // let offset = scroll - $("#pub").offset().top;
-    let offset = scroll - $("#pub .row_box").offset().top;
-    // console.log(offset);
-    console.log(scroll);
-
-    let scrollLeft = $(".row_box").scrollLeft();
-    console.log(scrollLeft);
-
-    if ( scroll > $("#pub .row_box").offset().top ) {
-        $("#pub .row_box>li").css("left", -offset);
-        // $("#pub .row_box").css("transform", `translateX(${-offset}px)`);
-    }
-
-    if ( scroll >= 4786 ) {
-        // $("#pub .row_box").css("left", -offset);
-        // $("#pub .row_box").css("transform", `translateX(${-offset}px)`);
-        let moveing = scrollLeft + scroll;
-        $("#pub .row_box").css("transform", `translateX(${-moveing}px)`);
-    }
-  });
- */
-
+  // publishing: 가로 스크롤
   $(window).scroll(function () {
     let scrollTop = $(window).scrollTop();
-    let offset = scrollTop - $(".row_box").offset().top;
-    console.log(scrollTop);
-    console.log(offset);
+    let slide = scrollTop - 5000;
 
-    if (scrollTop > $(".row_box").offset().top) {
-        $(".row_box>li").css("left", -offset);
+    if (scrollTop > $("#pub").offset().top) {
+        $(".row_box>li").css("left", -slide);
       } else {
-      $(".row_box>li").css("left", -offset);
+      $(".row_box>li").css("left", -slide);
     }
   });
 
-  /* $(window).scroll(function(){
-    let scrollLeft = $(".row_box>li").scrollLeft();
-    console.log(scrollLeft);
-    
-    $(".row").mousewheel(function(e){
-    let wheelDelta = e.originalEvent.wheelDelta;
+  // publishing: position:sticky로 가로 스크롤 부분 배경 고정
+  $(window).scroll(function () {
+    let scrollTop = $(window).scrollTop();
+    if( scrollTop >= 5094 && scrollTop <= 12094){
+      $("#pub").css({"position":"sticky", "top": "0"});
+    } else {
+      $("#pub").css({"position":"relative", "top": "0"});
+    }
 
-      if(wheelDelta > 0){			
-        console.log("up");	
-        $(".row_box>li").scrollLeft(scrollLeft + 100);		
-      }else{		
-        console.log("down");			
-        $(".row_box>li").scrollLeft(scrollLeft - 100);		
-      }
-    });
-  }); */
+    // publishing -> responsive 원상태로 변경
+    if( scrollTop > 11464 ){
+      $("#pub").css({"background":"var(--black-color)", "color":"var(--white-color)"});
+    } else {
+      $("#pub").css({"background":"var(--white-color)", "color":"var(--black-color)"});
+    }
+  });
 
 
+  // responsive: 각 디바이스 버튼 클릭시 모달창 보여주기
+  $("#respon .btns>li:not(:last-child)").click(function(){
+    $(this).next().show(); 
+    $("html").css({overflowY:"hidden"});
+    return false;
+  });
+
+  $(".close").click(function(){
+    $(".modal").hide(); 
+    $("html").css({"overflow-y":"scroll"}); 
+  });
+
+  /*검정 배경 클릭시 닫기*/
+  $(".modal").click(function(){
+    $("html").css({"overflow-y":"scroll"});
+    $(".modal").hide();
+    return false;
+  });
 
 });
-
-/* 
-$(function() {
-
-  $("body").mousewheel(function(event, delta) {
-    console.log(delta);
-
-    this.scrollLeft -= (delta * 300);
-    
-    event.preventDefault();
-
-  });
-}); */
-
-/* $('.row').on('mousewheel',function(e, delta){		
-  var wheelDelta = e.originalEvent.wheelDelta;	
-  // console.log(wheelDelta);	
-  $(window).scroll(function(){
-    let scroll = $(this).scrollTop();
-    // let offset = scroll - $("#pub").offset().top;
-    let offset = scroll - $('.row_box').offset().top;
-    // console.log(offset);
-    // console.log(scroll);
-    let offsetX = $('.row_box>li').offset().left;
-    console.log(offsetX);
-
-    if(wheelDelta > 0){			
-      console.log("up");			
-      // $('.row_box').scrollLeft(-wheelDelta + $('.row').scrollLeft());		
-      // $('.row_box').css('left', -wheelDelta + $('.row').scrollLeft());
-      $('.row_box>li').css('right', `${-wheelDelta + offset}px`);
-      // $('.row_box>li').css('right', wheelDelta -= scroll);
-    }else{		
-      console.log("down");			
-      // $('.row_box').scrollLeft(-wheelDelta + $('.row').scrollLeft());		
-      // $('.row_box').css('left', wheelDelta + $('.row').scrollLeft());
-      // $('.row_box>li').css('right', -wheelDelta + offset);
-      $('.row_box>li').css('right', `${-wheelDelta + offset}px`);
-    }
-
-
-  }); */
-  // console.log(e);
-  // console.log(delta);
-  // console.log($('.row').scrollLeft());
-// });
-
-/* $('.row_box').on('mousewheel DOMMouseScroll', function(event){
-
-  var delta = Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
-
-  $(this).scrollLeft( $(this).scrollLeft() - ( delta * 40 ) );
-  event.preventDefault();
-
-}); */
