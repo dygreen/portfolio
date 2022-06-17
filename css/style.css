@@ -56,14 +56,6 @@ header#top_gnb{
   justify-content: space-between;
 }
 
-/* 로고 */
-/* iframe{
-  width: 110px;
-  height: 110px;
-  border: none;
-  margin-top: -30px;
-  padding-left: 30px;
-} */
 .top_gnbIn img{
   height: 35px;
   transform: translateY(12px);
@@ -100,7 +92,7 @@ header#top_gnb{
 .top_gnbIn ul li:hover a:before, a:after{
   width: 60%;
   opacity: 1;
-  border-top: 2px solid var(--main-color);
+  border-top: 3px solid var(--main-color);
 }
 
 
@@ -279,6 +271,7 @@ section h2{
   position: relative;
   overflow: hidden;
   padding-left: 10px;
+  padding-top: 40px;
 }
 
 section h2:before{
@@ -286,6 +279,7 @@ section h2:before{
   display: inline-block;
   width: 100%;
   height: 0%;
+  transform: translateY(40px);
   color: var(--white-color);
   text-shadow: 0 0 0.2rem #fff;
   white-space: nowrap;
@@ -529,7 +523,6 @@ section h2.active:before{
   display: flex;
   font-family: var(--font-accent);
   margin-left: -150px;
-  color: #fad513;
   opacity: 0;
   transition: all 1s;
 }
@@ -542,6 +535,7 @@ section h2.active:before{
 /* 숫자 */
 #front .numbering{
   font-size: 200px;
+  color: #fad513;
 }
 
 /* 설명 */
@@ -570,6 +564,11 @@ section h2.active:before{
 
 #front1 .title .sub{
   font-size: 18px;
+}
+
+#front2 .title .main{
+  text-align: right;
+  margin-right: 10px;
 }
 
 /* 프로젝트 설명 박스 */
@@ -751,6 +750,7 @@ section h2.active:before{
   height: 650px;
 }
 
+/* 노트북 */
 #front .notebook{
   display: flex;
   justify-content: center;
@@ -764,23 +764,34 @@ section h2.active:before{
   height: 500px;
 }
 
-#front .work_result{
+#front1 .work_result,
+#front3 .work_result{
   position: absolute;
   top: 86px;
   left: 45px;
 }
 
-#front .work_result iframe{
-  width: 532px;
-  height: 350px;
+#front2 .work_result{
+  position: absolute;
+  top: 26px;
+  left: 37px;
 }
 
+#front1 .work_result img,
+#front3 .work_result img{
+  width: 632px;
+  height: 355px;
+}
+
+#front2 .work_result img{
+  width: 635px;
+  height: 400px;
+}
 
 /* ================= 3. PUBLISHING ================= */
 #pub{
-  position: relative;
   width: 5000px;
-  height: 6850px;
+  height: 6100px;
   background: var(--white-color);
   color: var(--black-color);
   transition: all 0.5s;
@@ -788,13 +799,14 @@ section h2.active:before{
 
 #pub h2{
   margin: 10vh 0 0 25vh;
-  padding-top: 7vh;
+  padding-left: 25px;
+  padding-top: 40px;
   color: transparent;
   -webkit-text-stroke: 0.5px var(--black-color);
 }
 
 #pub h2:before{
-  transform: translateY(6.9vh);
+  transform: translateY(40px);
   text-align: left;
   color: var(--black-color);
 }
@@ -802,6 +814,8 @@ section h2.active:before{
 #pub .row_box{
   display: flex;
   margin-left: 500px;
+  position: sticky;
+  top: 0;
 }
 
 #pub .row_box>li{
@@ -811,6 +825,7 @@ section h2.active:before{
   height: 100vh;
   margin: -20px 200px 0 350px;
   padding-left: 50px;
+  
 }
 
 #pub>ul>li .pub_left_box{
@@ -869,9 +884,9 @@ section h2.active:before{
   border: 1px solid var(--grey-color);
   box-sizing: border-box;
   position: relative;
-  top: 47%;
+  top: 47.5%;
   right: -15%;
-  transform: translateY(-47%);
+  transform: translateY(-47.5%);
 }
 
 #pub .info_box>div{
@@ -1022,17 +1037,18 @@ section h2.active:before{
 }
 
 #respon h2{
-  margin: 20vh 0 10vh;
+  margin-top: 5vh;
 }
 
 #respon>ul>li{
   display: flex;
-  margin-top: 10vh;
+  margin-top: 8vh;
 }
 
 #respon>ul>li .respon_left_box{
   width: 50%;
 }
+
 #respon>ul>li .respon_right_box{
   width: 50%;
   display: flex;
@@ -1041,7 +1057,6 @@ section h2.active:before{
   justify-content: flex-end;
   position: relative;
   top: 70px;
-  /* transform: translateY(-30px); */
 }
 
 /* ** 왼쪽 박스 ** */
@@ -1297,11 +1312,12 @@ iframe{
   position: relative;
 }
 
+/* 기여도 % */
 #respon .work .bar{
   display: inline-block;
   position: absolute;
   left: 0;
-  width: 100%;
+  width: 0%;
   height: 100%;
   background: #b6d7ff;
   transition: all 1s;
@@ -1371,10 +1387,268 @@ iframe{
 
 
 /* ================= 5. MOBILE ================= */
+#mobile{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 40vh;
+  position: relative;
+}
 
+#mobile h2{
+  margin-top: 10vh;
+}
 
+#mobile>ul>li{
+  display: flex;
+  margin-top: 8vh;
+}
 
+#mobile>ul>li .mobile_left_box{
+  width: 32%;
+}
 
+#mobile>ul>li .mobile_right_box{
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  /* background: #555; */
+}
+
+/* ** 왼쪽 박스 ** */
+/* 프로젝트 설명 박스 */
+#mobile .info_box{
+  width: 100%;
+  border: 1px solid var(--grey-color);
+  box-sizing: border-box;
+  transform: translateY(30px);
+}
+
+#mobile .info_box>div{
+  padding: 5px 25px;
+  display: flex;
+}
+
+#mobile .info_box .service{
+  display: block;
+}
+
+#mobile .info_box>div:first-of-type{
+  padding-top: 30px;
+}
+
+#mobile .info_box>div:last-of-type{
+  padding-bottom: 30px;
+}
+
+/* 설명 박스: 카테고리 */
+#mobile h5{
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  line-height: 33px;
+  font-size: 16px;
+  font-weight: 500;
+  background: #1c1c1c;
+  border: 1px solid #555;
+  box-sizing: border-box;
+}
+
+/* 설명 박스: 설명 */
+#mobile .subs{
+  padding: 3px 8px;
+  padding-left: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999;
+}
+
+#mobile .service ul{
+  position: relative;
+  left: 120px;
+  top: -50px;
+  margin-top: 15px;
+  padding: 0;
+}
+
+#mobile .service ul li{
+  font-weight: 300;
+  list-style-type: disc;
+  list-style-position: inside;
+  line-height: 35px;
+}
+
+#mobile .tool ul{
+  display: flex;
+}
+
+#mobile .tool ul li{
+  margin-right: 20px;
+}
+
+/* 기여도 */
+#mobile .work .subs{
+  line-height: 30px;
+}
+
+#mobile .work .subs>span{
+  margin-right: 5px;
+}
+
+#mobile .work .line{
+  display: inline-block;
+  width: 150px;
+  height: 15px;
+  border: 1px solid #666;
+  transform: translateY(3px);
+  position: relative;
+}
+
+/* 기여도 % */
+#mobile .work .bar{
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #ff007a;
+  transition: all 1s;
+  z-index: 1000;
+}
+
+#mobile .work .per{
+  display: inline-block;
+  width: 10%;
+  transform: translateY(1px);
+  text-align: center;
+}
+
+/* 링크 */
+#mobile .link{
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #555;
+}
+
+#mobile .link p{
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+}
+
+#mobile .link ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+#mobile .link ul li{
+  font-family: var(--font-accent);
+  font-size: 24px;
+  width: 120px;
+  height: 50px;
+  border: 2px solid #555;
+  text-align: center;
+  line-height: 50px;
+  color: #ff007a;
+  position: relative;
+}
+
+/* link 배경 설정 */
+#mobile .link ul li:before{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background: #ff007a;
+  transition: all 0.4s;
+  z-index: -1;
+}
+
+#mobile .link ul li:hover{
+  color: var(--black-color);
+}
+
+#mobile .link ul li:hover:before{
+  height: 100%;
+}
+
+/* ** 오른쪽 박스 ** */
+/* 설명 */
+#mobile .title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 400;
+  transform: translateX(44px);
+}
+
+#mobile .title .main{
+  font-family: var(--font-accent);
+  font-size: 50px;
+  margin-bottom: -5px;
+}
+
+#mobile .title .sub{
+  color: #999;
+  font-family: none;
+  font-size: 16px;
+}
+
+/* 모바일 작업 이미지 */
+#mobile .main_work{
+  position: relative;
+  background: url(../image/mobile2.png) no-repeat center center;
+  background-size: contain;
+  width: 320px;
+  height: 484px;
+  transform: translate(50px, 0px);
+  z-index: 500;
+}
+
+#mobile .main_work img{
+  position: absolute;
+  top: 14px;
+  left: 34px;
+  width: 253px;
+  height: 455px;
+  border-radius: 25px;
+  z-index: 500;
+}
+
+/* 2 ~ 5 */
+#mobile .work_result img{
+  position: absolute;
+  top: 0;
+  transform: scale(0.6);
+}
+
+#mobile .mo_work2{
+  left: 140px;
+  z-index: 400;
+}
+/* left, right 0  */
+#mobile .mo_work3{
+  right: 40px;
+  z-index: 400;
+}
+
+#mobile .mo_work4{
+  left: 30px;
+  z-index: 300;
+}
+
+#mobile .mo_work5{
+  right: -70px;
+  z-index: 300;
+}
 
 /* ================= 6. PLANNING & DESIGN ================= */
 
