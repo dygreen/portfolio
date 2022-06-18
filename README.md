@@ -20,5 +20,6 @@
 * 스크롤 효과(-> 타이틀 배경 채움, 스킬바 채워짐, 프로젝트 넘버링...)
 * `scrollIntoView`를 통해 상단 gnb 요소 클릭시 부드럽게 움직이는 기능
 * publishing | 가로 스크롤 기능(`.offset().top`, `position: sticky` 활용)
+* responsive web | tablet/mobile 버튼 클릭시 직접 코딩으로 제작한(`scss`) 태블릿, 모바일 이미지 모달창 띄우기
 * mobile | `window.open` 활용: 사이트 버튼 클릭시 모바일 해상도로 설정된 창 띄우기(window만 가능, mac일 경우 기존 해상도로 띄움)
 * 
