@@ -16,7 +16,6 @@
     <header id="top_gnb">
       <div class="top_gnbIn">
         <a href="index.html"><img src="image/logo_white.svg" alt="logo"></a>
-        <!-- <iframe src="image/logo.svg" aria-label="logo" scrolling="no"></iframe> -->
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#front">Front-end</a></li>
@@ -239,7 +238,7 @@
             <div class="desktop">
               <img src="image/desktop.png" alt="desktop">
               <div class="work_result">
-                <iframe src="image/front1.gif" alt="front work"></iframe>
+                <img src="image/front1.gif" alt="front work">
               </div>
             </div>
           </ul>
@@ -251,7 +250,7 @@
             <div class="notebook">
               <img src="image/notebook.png" alt="notebook">
               <div class="work_result">
-                <img src="" alt="">
+                <img src="image/front2.gif" alt="front work">
               </div>
             </div>
           </ul>
@@ -363,7 +362,7 @@
             <div class="desktop">
               <img src="image/desktop.png" alt="desktop">
               <div class="work_result">
-                <img src="" alt="">
+                <img src="image/front3.gif" alt="front work">
               </div>
             </div>
           </ul>
@@ -505,7 +504,7 @@
                 </div>
                 <div class="work">
                   <h5>기여도</h5>
-                  <p class="subs"><strong>개인작업 100%</strong> ( 메인/서브 리뉴얼 ~ 구현 )</p>
+                  <p class="subs"><strong>개인작업 100%</strong></p>
                 </div>
                 <div class="period">
                   <h5>작업기간</h5>
@@ -514,10 +513,10 @@
                 <div class="service">
                   <h5>주요기능</h5>
                   <ul class="subs">
-                    <li>메인 비주얼 자동 슬라이드</li>
-                    <li>페이지 상단 스크롤 진척도 표시</li>
-                    <li>탭 메뉴를 통해 제품 확인 가능</li>
-                    <li>자동 loop 이미지 슬라이드(hover시 멈춤)</li>
+                    <li>메뉴바에서 요소 클릭시 해당 콘텐츠 보여줌</li>
+                    <li>다양한 hover 효과 </li>
+                    <li>transition / animation 기능</li>
+                    <li>간단한 icon 제작(Photoshop)</li>
                   </ul>
                 </div>
                 <div class="link">
@@ -657,7 +656,7 @@
               <div class="link">
                 <p>* 자세한 프로젝트 실행과정은 아래 링크를 통해 확인해주세요 !</p>
                 <ul>
-                  <li><a href="https://github.com/dygreen/responsive_web/index.html" target="_blank">GitHub</a></li>
+                  <li><a href="https://github.com/dygreen/responsive_web" target="_blank">GitHub</a></li>
                   <li><a href="https://prickle-turn-785.notion.site/WEB-TREND-84e33ddcac5645ee849ba3b68c0b6f4a" target="_blank">Notion</a></li>
                 </ul>
               </div>
@@ -670,7 +669,7 @@
 
     <!-- 5. mobile -->
     <section id="mobile">
-      <h2 data-txt="mobile">mobile</h2>
+      <h2 data-txt="mobile">mobile project</h2>
       <ul>
         <!-- 5-1 CLASS101 -->
         <li id="mobile1">
@@ -686,7 +685,14 @@
               </div>
               <div class="work">
                 <h5>기여도</h5>
-                <p class="subs"><strong>개인작업 100%</strong> ( 트렌드 조사 보고서 ~ 구현 )</p>
+                <p class="subs">
+                  <span class="name">개인작업</span>
+                  <span class="line">
+                    <span class="bar"></span>
+                  </span>
+                  <span class="per">100%</span>
+                  <br>( 트렌드 조사 보고서 ~ 구현 )
+                </p>
               </div>
               <div class="period">
                 <h5>작업기간</h5>
@@ -695,7 +701,7 @@
               <div class="service">
                 <h5>주요기능</h5>
                 <ul class="subs">
-                  <li>ajax 데이터바인딩한 클래스 카테고리(swiper)</li>
+                  <li>클래스 정보 데이터바인딩(JSON)</li>
                   <li>실시간 급상승 검색어</li>
                   <li>진행/종료된 이벤트</li>
                   <li>개인정보 확인 가능한 마이페이지</li>
@@ -704,7 +710,7 @@
               <div class="link">
                 <p>* 자세한 프로젝트 실행과정은 아래 링크를 통해 확인해주세요 !</p>
                 <ul>
-                  <li><a href="#" onclick="openBrWindow('https://dygreen.github.io/class101/index.html', 'mobile', 'scrollbars=no, width=360px, height=640px, top=100px, left=100px')">Site</a></li>
+                  <li><a href="#" onclick="openBrWindow('https://dygreen.github.io/class101/index.html', 'mobile', 'scrollbars=no, width=400px, height=640px, top=100px, left=100px')" target="_blank">Site</a></li>
                   <li><a href="https://github.com/dygreen/class101" target="_blank">GitHub</a></li>
                   <li><a href="https://prickle-turn-785.notion.site/Class101-21f80cb513634c3ca6ccc49e12543dcb" target="_blank">Notion</a></li>
                 </ul>
@@ -714,17 +720,19 @@
           <ul class="mobile_right_box">
             <li class="number_box">
               <div class="title">
-                <p class="main">Class 101</p>
+                <p class="main">class 101</p>
                 <p class="sub">: 모바일 전체 페이지 제작(10page)</p>
               </div>
             </li>
-            <li class="mobile">
-              <img src="image/mo_work1.png" alt="mobile works">
+            <li class="mobile_work">
+              <div class="main_work">
+                <img src="image/mo_work1.png" alt="mobile works">
+              </div>
               <ul class="work_result">
-                <li><img src="image/mo_work2.png" alt="mobile works"></li>
-                <li><img src="image/mo_work3.png" alt="mobile works"></li>
-                <li><img src="image/mo_work4.png" alt="mobile works"></li>
-                <li><img src="image/mo_work5.png" alt="mobile works"></li>
+                <li><img src="image/mo_work2.png" alt="mobile works" class="mo_work2"></li>
+                <li><img src="image/mo_work3.png" alt="mobile works" class="mo_work3"></li>
+                <li><img src="image/mo_work4.png" alt="mobile works" class="mo_work4"></li>
+                <li><img src="image/mo_work5.png" alt="mobile works" class="mo_work5"></li>
               </ul>
             </li>
           </ul>
@@ -735,7 +743,109 @@
 
     <!-- 6. planning & design -->
     <section id="pland">
+      <!-- 6-1 planning -->
+      <section class="planning">
+        <h2 data-txt="planning">planning</h2>
+        <ul class="plan_btn">
+          <li class="selected">트렌드 조사 보고서</li>
+          <li>스토리보드</li>
+          <li>모바일웹 테스트 보고서</li>
+          <li>컨셉 도출 보고서</li>
+          <li>와이어프레임</li>
+        </ul>
+
+        <ul class="plan_cont">
+          <!-- 1 -->
+          <li class="plan_cont1 show">
+            <div class="plan_contIn">
+              <ul class="plan_left_box">
+                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_img">
+                  <img src="image/planning1.png" alt="planning img">
+                </li>
+              </ul>
+              <ul class="plan_right_box">
+                <li><img src="image/mo_work1.png" alt="planning result"></li>
+                <li class="link"><a href="#" onclick="openBrWindow('https://dygreen.github.io/class101/index.html', 'mobile', 'scrollbars=no, width=400px, height=640px, top=100px, left=100px')" target="_blank">Result</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- 2 -->
+          <li class="plan_cont2">
+            <div class="plan_contIn">
+              <ul class="plan_left_box">
+                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_img">
+                  <img src="image/planning2.png" alt="planning img">
+                </li>
+              </ul>
+              <ul class="plan_right_box">
+                <li class="result2"><img src="image/plan_result2.png" alt="planning result"></li>
+                <li class="link"><a href="https://dygreen.github.io/paradisecity/index.html" target="_blank">Result</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- 3 -->
+          <li class="plan_cont3">
+            <div class="plan_contIn">
+              <ul class="plan_left_box">
+                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_img">
+                  <img src="image/planning1.png" alt="planning img">
+                </li>
+              </ul>
+              <ul class="plan_right_box">
+                <li><img src="image/mo_work1.png" alt="planning result"></li>
+                <li class="link"><a href="#" onclick="openBrWindow('https://dygreen.github.io/class101/index.html', 'mobile', 'scrollbars=no, width=400px, height=640px, top=100px, left=100px')" target="_blank">Result</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- 4 -->
+          <li class="plan_cont4">
+            <div class="plan_contIn">
+              <ul class="plan_left_box">
+                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_img">
+                  <img src="image/planning4.png" alt="planning img">
+                </li>
+              </ul>
+              <ul class="plan_right_box">
+                <li class="result4"><img src="image/plan_result4.jpg" alt="planning result"></li>
+                <li class="link link4"><a href="#">Result</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- 모달창 -->
+          <div class="modal">
+            <div class="work_result">
+              <img src="image/plan_result4-1.jpg" alt="planning work result">
+            </div>
+            <a href="#" class="close"><img src="image/close.png" alt="close"></a>
+          </div>
+          <!-- 5 -->
+          <li class="plan_cont5">
+            <div class="plan_contIn">
+              <ul class="plan_left_box">
+                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_img">
+                  <img src="image/planning5.png" alt="planning img">
+                </li>
+              </ul>
+              <ul class="plan_right_box">
+                <li><img src="image/mo_work1.png" alt="planning result"></li>
+                <li class="link"><a href="https://bit.ly/3OrhMZy" target="_blank">Figma</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
       
+      
+      <!-- 6-2 design -->
+      <section class="design">
+        <h2 data-txt="design">design</h2>
+
+      </section>
     </section>
 
 

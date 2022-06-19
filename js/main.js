@@ -21,6 +21,17 @@ function introTitle(){
 }
 
 
+// 책갈피 클릭시 부드럽게 움직이는
+document.querySelectorAll("#top_gnb li a").forEach(li => {
+    li.addEventListener("click", e => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+
+
 // aside: scroll위치에 따라 guide내용을 바꾸는 함수
 function guideChange(i){
   let guide_list = $(".side_guide>li");
@@ -29,7 +40,7 @@ function guideChange(i){
 }
 
 
-// 1~6 각 섹션 타이틀 채움 효과를 줄 함수
+// 1~6 각 섹션 타이틀 채움 효과를 주는 함수
 function headlineChange(i){
   let headline = $("section h2");
   headline.removeClass("active");
@@ -37,14 +48,14 @@ function headlineChange(i){
 }
 
 
-// 프로젝트 넘버링이 움직이는 효과를 줄 함수
+// front: 프로젝트 넘버링이 움직이는 효과를 주는 함수
 function numMoving(i){
   let number_box = $(`#front${i} .number_box`);
   number_box.css({"opacity":"1", "margin":"0px"});
 }
 
 
-// 프로젝트 기여도 %를 채워줄 함수
+// front: 프로젝트 기여도 %를 채워주는 함수
 function workFill(i){
   $(`#front${i} .work .bar`).css({"width": "100%"});
 }
@@ -52,8 +63,24 @@ function workFill(i){
 
 // mobile: site 버튼 클릭시 모바일 해상도 창 띄우는 함수
 function openBrWindow(theURL, windName, features){
-  window.open(theURL, windName, features);
+
+  if(typeof (window.open) == "function"){
+    // window ver
+    window.open(theURL, windName, features);
+  } else {
+    // mac ver
+    window.location.href = "https://github.com/dygreen/class101";
+  }
+
 }
+
+
+// gnb: 배경/텍스트 변화주는 함수
+function gnbChange(color){
+  $(".top_gnbIn img").attr("src",`image/logo_${color}.svg`);
+  $(".top_gnbIn ul li").css({"color":`var(--${color}-color)`});
+}
+
 
 
 // =================== ready ===================
@@ -62,14 +89,11 @@ window.addEventListener("DOMContentLoaded", function(){
   // 왼쪽 guide 내용 바꿈 + 각 섹션 타이틀 채워짐 효과
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
-    // console.log(scroll);
 
     if( scroll < 600 ){
-      $("#top_gnb").slideUp();
       guideChange(0);
       $("section h2").removeClass("active");
     } else if( scroll >= 600 && scroll < 1640 ){
-      $("#top_gnb").slideDown();
       // about
       guideChange(1);
       headlineChange(0);
@@ -77,14 +101,44 @@ window.addEventListener("DOMContentLoaded", function(){
       // front
       guideChange(2);
       headlineChange(1);
-    } else if( scroll >= 4834 ){
+    } else if( scroll >= 4834 && scroll < 10890 ){
+      // publishing
       guideChange(3);
       headlineChange(2);
+    } else if( scroll >= 10890 && scroll < 12224 ){
+      // responsive
+      guideChange(4);
+      headlineChange(3);
+    } else if( scroll >= 12224 && scroll < 13493){
+      // mobile
+      guideChange(5);
+      headlineChange(4);
+    } else if( scroll >= 13493 && scroll < 14684 ){
+      // planning
+      guideChange(6);
+      headlineChange(5);
+    } else {
+      // design
+      headlineChange(6);
+    }
+
+  });
+
+
+  // gnb 보여주기
+  $(window).scroll(() => {
+    let scroll = $(window).scrollTop();
+
+    if( scroll > 600){
+      $("#top_gnb").slideDown();
+    } else {
+      $("#top_gnb").slideUp();
     }
   });
 
 
-  // about: skill바 채워지는 효과
+  // ***************** ABOUT *****************
+  // skill바 채워지는 효과
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
 
@@ -99,7 +153,8 @@ window.addEventListener("DOMContentLoaded", function(){
   });
 
 
-  // front: 프로젝트 넘버링 효과
+  // ***************** FRONT *****************
+  // 프로젝트 넘버링 효과
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
 
@@ -116,22 +171,21 @@ window.addEventListener("DOMContentLoaded", function(){
   });
 
 
-  // publishing 부분: 로고 이미지 검정, gnb color 바꾸기
+  // ***************** PUBLISING *****************
+  // 로고 이미지 검정, gnb color 바꾸기
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
 
     if( scroll >= 5054 ){
-      $(".top_gnbIn img").attr("src","image/logo_black.svg");
-      $(".top_gnbIn ul li").css({"color":"var(--black-color)"});
+      gnbChange('black');
     } else {
-      $(".top_gnbIn img").attr("src","image/logo_white.svg");
-      $(".top_gnbIn ul li").css({"color":"var(--white-color)"});
+      gnbChange('white');
     }
   });
 
 
-  // publishing: 가로 스크롤
-  $(window).scroll(function () {
+  // 가로 스크롤
+  $(window).scroll(() => {
     let scrollTop = $(window).scrollTop();
     let slide = scrollTop - 5000;
 
@@ -142,25 +196,32 @@ window.addEventListener("DOMContentLoaded", function(){
     }
   });
 
-  // publishing: position:sticky로 가로 스크롤 부분 배경 고정
-  $(window).scroll(function () {
+
+  // position:sticky로 가로 스크롤 부분 배경 고정
+  $(window).scroll(() => {
     let scrollTop = $(window).scrollTop();
-    if( scrollTop >= 5094 && scrollTop <= 12094){
+    console.log(scrollTop);
+
+    if( scrollTop >= 5094 && scrollTop < 10900){
       $("#pub").css({"position":"sticky", "top": "0"});
     } else {
       $("#pub").css({"position":"relative", "top": "0"});
     }
 
-    // publishing -> responsive 원상태로 변경
-    if( scrollTop > 11464 ){
+
+    // publishing -> responsive 원상태로 변경(배경,텍스트,gnb)
+    if( scrollTop > 10811 ){
       $("#pub").css({"background":"var(--black-color)", "color":"var(--white-color)"});
+      gnbChange('white');
     } else {
       $("#pub").css({"background":"var(--white-color)", "color":"var(--black-color)"});
     }
+
   });
 
 
-  // responsive: 각 디바이스 버튼 클릭시 모달창 보여주기
+// ***************** RESPONSIVE *****************
+  // 각 디바이스 버튼 클릭시 모달창 보여주기
   $("#respon .btns>li:not(:last-child)").click(function(){
     $(this).next().show(); 
     $("html").css({overflowY:"hidden"});
@@ -178,5 +239,65 @@ window.addEventListener("DOMContentLoaded", function(){
     $(".modal").hide();
     return false;
   });
+
+
+  // skill바 채워지는 효과
+  $(window).scroll(() => {
+    let scroll = $(window).scrollTop();
+
+    if ( scroll > 11247 ){
+      $("#respon .work .bar").css({"width": "100%"});
+    } else {
+      $("#respon .work .bar").css({"width": "0%"});
+    }
+
+  });
+
+
+  $(window).scroll(() => {
+    let scroll = $(window).scrollTop();
+    
+    if ( scroll > 12454 ){
+      // skill바 채워지는 효과
+      $("#mobile .work .bar").css({"width": "100%"});
+      // 결과물 이미지 애니메이션
+      $(".mo_work2").css({"left": "140px"});
+      $(".mo_work3").css({"right": "40px"});
+      $(".mo_work4").css({"left": "30px"});
+      $(".mo_work5").css({"right": "-70px"});
+    } else {
+      $("#mobile .work .bar").css({"width": "0%"});
+      $(".mo_work2, .mo_work4").css({"left": "35%"});
+      $(".mo_work3, .mo_work5").css({"right": "25%"});
+    }
+
+  });
+
+
+  // ***************** PLANNING *****************
+   // tab menu
+    let button = $(".planning .plan_btn>li");
+    let content = $(".planning .plan_cont>li");
+  
+    for(let i = 0; i < button.length; i++){
+      button.eq(i).click(function(){
+        tab(i);
+      });
+    }
+  
+    function tab(i){
+      button.removeClass("selected");
+      button.eq(i).addClass("selected");
+      content.removeClass("show");
+      content.eq(i).addClass("show");
+    }
+
+
+    // result 버튼 클릭시 모달창 띄우기
+    $(".plan_right_box .link4").click(function(){
+      $(".planning .modal").show(); 
+      $("html").css({overflowY:"hidden"});
+      return false;
+    });
 
 });
