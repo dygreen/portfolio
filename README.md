@@ -22,6 +22,6 @@
 * publishing | 가로 스크롤 기능(`.offset().top`, `position: sticky` 활용)
 * responsive web | tablet/mobile 버튼 클릭시 직접 코딩으로 제작한(`scss`) 태블릿, 모바일 이미지 모달창 띄우기
 * mobile | `window.open` 활용: 사이트 버튼 클릭시 모바일 해상도로 설정된 창 띄우기(window만 가능, mac일 경우 기존 해상도로 띄움)
-* planning | 탭 버튼으로 콘텐츠 구분
-             컨셉도출보고서 부분) 상세 설명 이미지 모달창 띄우기 
-             와이어프레임 부분) Figma 링크 걸기
+* planning | 탭 버튼으로 콘텐츠 구분 <br>
+             _컨셉도출보고서 부분) 상세 설명 이미지 모달창 띄우기_ <br>
+             _와이어프레임 부분) Figma 링크 걸기_ <br>
