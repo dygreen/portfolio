@@ -109,7 +109,7 @@ function appendDesign2(i){
 
 // =================== ready ===================
 window.addEventListener("DOMContentLoaded", function(){
-  
+
   // 왼쪽 guide 내용 바꿈 + 각 섹션 타이틀 채워짐 효과
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
@@ -258,10 +258,12 @@ window.addEventListener("DOMContentLoaded", function(){
   });
 
   
-  // 검정 배경 클릭시 닫기
-  $(".modal").click(function(){
+  // 검정 모달 배경 클릭시 닫기
+  $(".modal").click(function(e){
     $("html").css({"overflow-y":"scroll"});
-    $(".modal").hide();
+    if(e.target == e.currentTarget) {
+      $(".modal").hide();
+    }
     return false;
   });
 
@@ -326,7 +328,7 @@ window.addEventListener("DOMContentLoaded", function(){
   });
 
 
-  // ***************** PLANNING *****************
+  // ***************** DESIGN *****************
   // 썸네일 이미지 클릭시 모달창 띄우기
   $(".design_list li").click(function(){
     img_index = $(this).index();
@@ -369,5 +371,43 @@ window.addEventListener("DOMContentLoaded", function(){
       $(".design .modal_img>li").eq(img_index).show();
     }
   });
+
+
+  // ***************** FOOTER *****************
+  // 타이핑 효과
+  let typingTag = document.querySelector(".typing");
+  let typeCont = typingTag.innerHTML;
+
+  function typingEff(){
+    typingTag.innerHTML = "";
+    
+    for(let i = 0; i < typeCont.length; i++){
+        setTimeout(() => {
+          typingTag.innerHTML += typeCont[i];
+        }, 150 * i);
+    }
+  }
+
+  setInterval(typingEff, 5000);
+  // setTimeout(typingEff, 5000);
+
+
+  // 마지막 부분에 top btn 등장
+  $(window).scroll(() => {
+    let scroll = $(window).scrollTop();
+
+    if( scroll >= 15500 ){
+      $("#top_btn a.active").fadeIn();
+    } else {
+      $("#top_btn a.active").fadeOut();
+    }
+  });
+
+  // top btn 클릭시 부드럽게 올라가는
+  $("#top_btn").click(function(){
+    $("html, body").animate({scrollTop : 0}, 600);
+    return false;
+  });
+
 
 });

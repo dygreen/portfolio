@@ -29,6 +29,23 @@ body{
   color: var(--white-color);
 }
 
+/* top btn */
+#top_btn {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1000;
+}
+
+#top_btn a.active {
+  background: url(../image/top_btn.png) no-repeat;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  display: block;
+}
+
 #wrap{
   width: 100%;
   position: relative;
@@ -1214,7 +1231,7 @@ section h2.active:before{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  z-index: 15000;
+  z-index: 10000;
 }
 
 iframe{
@@ -1645,7 +1662,7 @@ iframe{
 #pland{
   max-width: 1400px;
   margin: 0 auto;
-  padding-bottom: 40vh;
+  /* padding-bottom: 40vh; */
   position: relative;
   /* background: pink; */
 }
@@ -1800,7 +1817,7 @@ iframe{
   justify-content: center;
   align-items: center;
   margin: 60px auto;
-  z-index: 15000;
+  z-index: 10000;
 }
 
 .planning .modal .work_result img{
@@ -1935,4 +1952,43 @@ iframe{
   font-size: 20px;
   font-weight: 700;
   text-align: center;
+}
+
+
+/* ================= FOOTER ================= */
+footer{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 5vh;
+}
+
+.footerIn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footerIn img{
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.footerIn p{
+  text-align: center;
+}
+
+.footerIn .typing{
+  font-family: var(--font-medi);
+  font-size: 70px;
+}
+
+.footerIn .contact{
+  font-size: 20px;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 150px;
+}
+
+.footerIn .info{
+  color: #999;
 }
