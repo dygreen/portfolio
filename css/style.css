@@ -1205,7 +1205,7 @@ section h2.active:before{
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.8);
-  z-index: 99999;
+  z-index: 9000;
   overflow: auto;
 }
 
@@ -1214,6 +1214,7 @@ section h2.active:before{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  z-index: 15000;
 }
 
 iframe{
@@ -1793,8 +1794,13 @@ iframe{
 }
 
 .planning .modal .work_result{
+  position: relative;
   width: 900px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+  z-index: 15000;
 }
 
 .planning .modal .work_result img{
@@ -1804,9 +1810,129 @@ iframe{
 
 /* *********** DESIGN *********** */
 .design{
+  max-width: 1400px;
+  margin: 0 auto;
   padding-bottom: 30vh;
+  /* background: pink; */
 }
 
+.design_gallery{
+  display: grid;
+  margin-top: 8vh;
+}
 
+/* 썸네일 이미지 */
+.design_list{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-gap: 12px;
+}
 
+.design_list li{
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(110, 110, 110, 0.15);
+  height: 230px;
+  overflow: hidden;
+  position: relative;
+}
 
+/* 2번째 이미지 합치기 */
+.design_list li:nth-child(2){
+  grid-area: span 2 / span 2;
+  height: 472px;
+}
+
+/* 자세히 보기 화면 */
+.design_list li::after{
+  content: "자세히보기 🔍";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding-top: 45%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  background: rgba(0,0,0,0.7);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.design_list li:hover::after{
+  opacity: 1;
+}
+
+/* 개별 이미지 height 맞추기 */
+.design_list li:nth-child(1) img,
+.design_list li:nth-child(4) img,
+.design_list li:nth-child(5) img,
+.design_list li:nth-child(9) img{
+  height: 230px;
+}
+
+.design_list img{
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+/* 모달창 설정 */
+.design_modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  overflow-y: scroll;
+  z-index: 9000;
+}
+
+.design_modal .modal_img{
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+  z-index: 10000;
+}
+
+.design_modal .modal_img li{
+  position: absolute;
+  width: inherit;
+  height: 100%;
+  margin: 0 auto;
+  display: none;
+}
+
+/* 버튼 영역 */
+.design .btn_list{
+  position: fixed;
+  top: 100px;
+  right: 15px;
+  z-index: 10000;
+  display: none;
+}
+
+.design .btn_list li{
+  color: #999;
+}
+
+.design .btn_list li:not(:last-child):hover{
+  color: var(--white-color);
+}
+
+.design .btn_list .prev, .next{
+  float: left;
+  font-size: 40px;
+}
+
+.design .btn_list .img_page{
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}

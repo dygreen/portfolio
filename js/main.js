@@ -21,8 +21,15 @@ function introTitle(){
 }
 
 
+// gnb: 배경/텍스트 변화주는 함수
+function gnbChange(color){
+  $(".top_gnbIn img").attr("src",`image/logo_${color}.svg`);
+  $(".top_gnbIn ul li").css({"color":`var(--${color}-color)`});
+}
+
+
 // 책갈피 클릭시 부드럽게 움직이는
-document.querySelectorAll("#top_gnb li a").forEach(li => {
+document.querySelectorAll("#top_gnb li a, nav ul li a").forEach(li => {
     li.addEventListener("click", e => {
         e.preventDefault();
         document.querySelector(li.getAttribute("href")).scrollIntoView({
@@ -75,12 +82,29 @@ function openBrWindow(theURL, windName, features){
 }
 
 
-// gnb: 배경/텍스트 변화주는 함수
-function gnbChange(color){
-  $(".top_gnbIn img").attr("src",`image/logo_${color}.svg`);
-  $(".top_gnbIn ul li").css({"color":`var(--${color}-color)`});
+// design: 이미지를 9번 반복해서 붙여넣을 함수
+function designGall(){
+  for(let i = 1; i <= 9; i++){
+    appendDesign(i);
+    appendDesign2(i)
+  }
+}
+designGall();
+
+
+// design: 썸네일 이미지를 붙여줄 함수
+function appendDesign(i){
+  let design_imgs = $(`<li><img src="image/design${i}.jpg" alt="design result"></li>`);
+  
+  $(".design_list").append(design_imgs);
 }
 
+// design: 모달창 이미지를 붙여줄 함수
+function appendDesign2(i){
+  let design_imgs = $(`<li><img src="image/design${i}.jpg" alt="design result"></li>`);
+
+  $(".design .modal_img").append(design_imgs);
+}
 
 
 // =================== ready ===================
@@ -233,7 +257,8 @@ window.addEventListener("DOMContentLoaded", function(){
     $("html").css({"overflow-y":"scroll"}); 
   });
 
-  /*검정 배경 클릭시 닫기*/
+  
+  // 검정 배경 클릭시 닫기
   $(".modal").click(function(){
     $("html").css({"overflow-y":"scroll"});
     $(".modal").hide();
@@ -275,29 +300,74 @@ window.addEventListener("DOMContentLoaded", function(){
 
 
   // ***************** PLANNING *****************
-   // tab menu
-    let button = $(".planning .plan_btn>li");
-    let content = $(".planning .plan_cont>li");
+  // tab menu
+  let button = $(".planning .plan_btn>li");
+  let content = $(".planning .plan_cont>li");
   
-    for(let i = 0; i < button.length; i++){
-      button.eq(i).click(function(){
-        tab(i);
-      });
-    }
-  
-    function tab(i){
-      button.removeClass("selected");
-      button.eq(i).addClass("selected");
-      content.removeClass("show");
-      content.eq(i).addClass("show");
-    }
-
-
-    // result 버튼 클릭시 모달창 띄우기
-    $(".plan_right_box .link4").click(function(){
-      $(".planning .modal").show(); 
-      $("html").css({overflowY:"hidden"});
-      return false;
+  for(let i = 0; i < button.length; i++){
+    button.eq(i).click(function(){
+      tab(i);
     });
+  }
+  
+  function tab(i){
+    button.removeClass("selected");
+    button.eq(i).addClass("selected");
+    content.removeClass("show");
+    content.eq(i).addClass("show");
+  }
+
+
+  // result 버튼 클릭시 모달창 띄우기
+  $(".plan_right_box .link4").click(function(){
+    $(".planning .modal").show(); 
+    $("html").css({overflowY:"hidden"});
+    return false;
+  });
+
+
+  // ***************** PLANNING *****************
+  // 썸네일 이미지 클릭시 모달창 띄우기
+  $(".design_list li").click(function(){
+    img_index = $(this).index();
+
+    $(".design .modal_img>li").hide(); // 기존 이미지 숨기기
+    $(".img_page span:first-child").text(img_index+1); // 페이지 넘버 바꾸기
+    $("html").css({overflowY:"hidden"});
+    $(".design .modal_img>li").eq(img_index).show(); // 해당하는 이미지 보여주기
+    $(".design .design_modal").show(); // 모달창 보이기
+    $(".btn_list").show(); // 버튼 보이기
+
+    return false;
+  });
+
+
+  // close 버튼
+  $(".btn_list .close").click(function(){
+    $(".design_modal").hide();
+    $(".btn_list").hide();
+  });
+
+
+  // 다음 버튼
+  $(".btn_list .next").click(function(){
+    if( img_index < 8 ){
+      $(".design .modal_img>li").eq(img_index).hide(); // 기존 이미지 숨기기
+      img_index++;
+      $(".img_page span:first-child").text(img_index+1);
+      $(".design .modal_img>li").eq(img_index).show(); // 다음 이미지 보여주기
+    }
+  });
+
+
+  // 이전 버튼
+  $(".btn_list .prev").click(() => {
+    if( img_index > 0 ){
+      $(".design .modal_img>li").eq(img_index).hide();
+      img_index--;
+      $(".img_page span:first-child").text(img_index+1);
+      $(".design .modal_img>li").eq(img_index).show();
+    }
+  });
 
 });
