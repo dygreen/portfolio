@@ -53,7 +53,7 @@ body{
 
 
 /* ================= HEADER ================= */
-header#top_gnb{
+header{
   position: fixed;
   top: 0;
   left: 0;
@@ -73,11 +73,13 @@ header#top_gnb{
   justify-content: space-between;
 }
 
+/* 로고 */
 .top_gnbIn img{
   height: 35px;
   transform: translateY(12px);
 }
 
+/* 메뉴 */
 .top_gnbIn ul{
   display: flex;
   align-items: center;
@@ -85,11 +87,11 @@ header#top_gnb{
 }
 
 .top_gnbIn ul li{
+  position: relative;
   font-size: 16px;
   font-weight: 100;
   padding: 0 20px;
   line-height: 17px;
-  position: relative;
 }
 
 /* hover시 밑줄 효과 */
@@ -128,12 +130,12 @@ aside{
 }
 
 /* 메뉴 가이드 부분 */
-aside ul.side_guide{
+.side_guide{
   position: relative;
   transform: rotate(-90deg);
 }
 
-aside ul.side_guide li{
+.side_guide li{
   position: absolute;
   top: -35px;
   right: 80px;
@@ -146,19 +148,19 @@ aside ul.side_guide li{
   opacity: 0;
 }
 
-/* js -> class적용 */
-aside ul.side_guide .guide_show{
+/* jQuery 적용 */
+.side_guide .guide_show{
   opacity: 1;
 }
 
 /* planning&design 폰트 크기+위치 조정 */
-aside ul.side_guide li:last-child{
+.side_guide li:nth-child(7){
   font-size: 38px;
   top: -26px;
 }
 
 /* 아이콘 부분 */
-aside ul.side_icon{
+.side_icon{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -167,28 +169,29 @@ aside ul.side_icon{
 }
 
 /* 아이콘 크기 */
-aside ul.side_icon li{
+.side_icon li{
   font-size: 36px;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
-aside ul.side_icon li:nth-child(2){
+.side_icon li:nth-child(2){
   margin: 15px 0;
 }
 
-aside ul.side_icon li:hover{
+.side_icon li:hover{
   color: var(--main-color);
 }
+
 
 /* ================= INTRO ================= */
 /* 소개문구 */
 #intro{
+  position: relative;
   display: flex;
   width: 100%;
   max-width: 1400px;
   height: 940px;
   margin: 0 auto;
-  position: relative;
 }
 
 #intro .title{
@@ -223,18 +226,18 @@ aside ul.side_icon li:hover{
 }
 
 /* 오른쪽 nav */
-#intro nav{
+nav{
   width: 40%;
 }
 
-#intro nav ul{
+nav ul{
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   transform: translateY(23vh);
 }
 
-#intro nav li{
+nav ul li{
   position: relative;
   width: 350px;
   height: 65px;
@@ -253,12 +256,12 @@ aside ul.side_icon li:hover{
   z-index: 100;
 }
 
-#intro nav li:hover{
+nav ul li:hover{
   color: var(--white-color);
 }
 
 /* nav 배경 hover효과 */
-#intro nav li:before{
+nav ul li:before{
   content: '';
   display: inline-block;
   position: absolute;
@@ -271,13 +274,14 @@ aside ul.side_icon li:hover{
   z-index: -1;
 }
 
-#intro nav li:hover:before{
+nav ul li:hover:before{
   height: 100%;
 }
 
 /* ================= 1. ABOUT ================= */
 /* 1~6 큰제목 설정 */
 section h2{
+  position: relative;
   width: 100%;
   height: 135px;
   text-transform: uppercase;
@@ -285,12 +289,12 @@ section h2{
   font-size: 120px;
   color: transparent;
   -webkit-text-stroke: 0.5px var(--white-color);
-  position: relative;
   overflow: hidden;
   padding-left: 10px;
   padding-top: 40px;
 }
 
+/* 1~6 큰제목 채워짐 설정 */
 section h2:before{
   content: attr(data-txt);
   display: inline-block;
@@ -305,12 +309,12 @@ section h2:before{
   transition: all 0.6s;
 }
 
-/* js -> class 적용 */
+/* jQuery 적용 */
 section h2.active:before{
   height: 100%;
 }
 
-/* about~ */
+/* about */
 #about{
   max-width: 1400px;
   margin: 20vh auto;
@@ -323,7 +327,7 @@ section h2.active:before{
   margin-top: 60px;
 }
 
-/* left box */
+/* ** 왼쪽 박스 ** 비율 설정 */
 .about_left_box{
   width: 50%;
 }
@@ -334,41 +338,47 @@ section h2.active:before{
   height: 60%;
 }
 
+.about_left_box .bottom_cont{
+  width: 100%;
+  height: 40%;
+}
+
 /* 이미지 */
 .p_image img{
   height: 100%;
 }
 
 /* 프로필 */
-.about_left_box .profile{
+.profile{
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   position: relative;
   padding: 35px;
+  padding-right: 20px;
 }
 
-.about_left_box .profile li{
+.profile li{
   font-size: 20px;
   line-height: 30px;
   font-weight: 100;
   color: #999;
 }
 
-.about_left_box .profile li span{
+.profile li span{
   display: inline-block;
   width: 105px;
   font-weight: 500;
 }
 
 /* profile 강조부분 */
-.about_left_box .profile li.bold{
+.profile li.bold{
   font-size: 18px;
   margin-bottom: 5px;
 }
 
-.about_left_box .profile li.bold span{
+.profile li.bold span{
   display: inline-block;
   width: 105px;
   height: 50px;
@@ -378,43 +388,43 @@ section h2.active:before{
 }
 
 /* 자기소개 */
-.about_left_box .bottom_cont{
-  width: 100%;
-  height: 40%;
-}
-
-.about_left_box .self_intro{
+.self_intro{
   padding-top: 50px;
 }
 
-.about_left_box .self_intro p{
+.self_intro p{
   border-top: 2px solid #333;
   padding: 50px;
   color: #eee;
   line-height: 22px;
 }
 
-.about_left_box .self_intro strong{
+.self_intro strong{
   display: inline-block;
   font-size: 22px;
   color: var(--white-color);
   margin-bottom: 25px;
 }
 
-/* right box */
+/* ** 오른쪽 박스 ** 비율 설정 */
 .about_right_box{
   width: 50%;
   color: #999;
 }
 
-/* 경험 */
 .about_right_box .top_cont{
   width: 100%;
-  height: 48%;
+  height: 40%;
 }
 
+.about_right_box .bottom_cont{
+  width: 100%;
+  height: 60%;
+}
+
+/* 경험 */
 .about_right_box .top_contIn{
-  padding: 0 100px;
+  padding-left: 100px;
 }
 
 /* 타이틀 제목 */
@@ -427,7 +437,7 @@ section h2.active:before{
 }
 
 .about_right_box .top_cont li{
-  font-size: 18px;
+  font-size: 17px;
   margin-bottom: 15px;
 }
 
@@ -438,31 +448,26 @@ section h2.active:before{
 }
 
 /* 스킬바 */
-.about_right_box .bottom_cont{
-  width: 100%;
-  height: 50%;
-  /* background: blue; */
-}
-
 .about_right_box .bottom_contIn{
-  padding: 0 100px;
+  padding-left: 100px;
+  margin-top: 30px;
 }
 
-.about_right_box .skill_list li{
+.skill_list li{
   display: flex;
   width: 100%;
   margin-bottom: 10px;
 }
 
-.about_right_box .skill_list .name{
+.skill_list .name{
   display: inline-block;
-  width: 22%;
+  width: 20%;
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
   border: 1px solid transparent;
 }
 
-.about_right_box .skill_list .line{
+.skill_list .line{
   display: inline-block;
   width: 60%;
   height: 15px;
@@ -471,7 +476,7 @@ section h2.active:before{
   position: relative;
 }
 
-.about_right_box .skill_list .bar{
+.skill_list .bar{
   display: inline-block;
   position: absolute;
   left: 0;
@@ -482,33 +487,37 @@ section h2.active:before{
   z-index: 1000;
 }
 
-.about_right_box .skill_list .per{
+.skill_list .per{
   display: inline-block;
   width: 10%;
-  padding-top: 2px;
   text-align: center;
+  font-size: 17px;
+  font-weight: 400;
 }
 
 .sub_skill{
-  border: 1px solid #333;
+  width: 88%;
+  height: 80px;
+  border: 1px solid #555;
+  background: #333;
   margin-top: 20px;
-  padding-left: 10px;
-  padding-bottom: 5px;
+  padding-left: 5px;
 }
 
 .sub_skill p{
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 500;
   color: #eee;
-  margin-bottom: 8px;
+  margin-top: 6px;
 }
 
 .sub_skill span{
   display: inline-block;
   font-size: 17px;
-  font-weight: 400;
   padding-right: 5px;
+  color: #eee;
 }
+
 
 /* ================= 2. FRONT-END ================= */
 #front{
@@ -531,6 +540,7 @@ section h2.active:before{
 #front>ul>li .front_left_box{
   width: 50%;
 }
+
 #front>ul>li .front_right_box{
   width: 50%;
 }
@@ -540,10 +550,12 @@ section h2.active:before{
   display: flex;
   font-family: var(--font-accent);
   margin-left: -150px;
+  color: #fad513;
   opacity: 0;
   transition: all 1s;
 }
 
+/* 2-2 숫자박스 위치 설정 */
 #front2 .number_box{
   justify-content: flex-end;
   margin-right: -150px;
@@ -552,7 +564,6 @@ section h2.active:before{
 /* 숫자 */
 #front .numbering{
   font-size: 200px;
-  color: #fad513;
 }
 
 /* 설명 */
@@ -575,6 +586,7 @@ section h2.active:before{
   font-size: 16px;
 }
 
+/* 설명 2-1, 2-2 개별 설정 */
 #front1 .title .main{
   font-size: 45px;
 }
@@ -599,25 +611,26 @@ section h2.active:before{
   margin-left: 160px;
 }
 
-#front .info_box>div{
+/* tool~link 전체 카테고리 (공통) */
+.info_box>div{
   padding: 5px 25px;
   display: flex;
 }
 
-#front .info_box .service{
+.info_box .service{
   display: block;
 }
 
-#front .info_box>div:first-of-type{
+.info_box>div:first-of-type{
   padding-top: 30px;
 }
 
-#front .info_box>div:last-of-type{
+.info_box>div:last-of-type{
   padding-bottom: 30px;
 }
 
-/* 설명 박스: 카테고리 */
-#front h5{
+/* 설명 박스: 카테고리 텍스트 (공통) */
+h5{
   width: 100px;
   height: 35px;
   text-align: center;
@@ -629,8 +642,8 @@ section h2.active:before{
   box-sizing: border-box;
 }
 
-/* 설명 박스: 설명 */
-#front .subs{
+/* 설명 박스: 하위 설명 (공통) */
+.subs{
   padding: 3px 8px;
   padding-left: 20px;
   font-size: 16px;
@@ -638,35 +651,23 @@ section h2.active:before{
   color: #999;
 }
 
-#front .service ul{
-  position: relative;
-  left: 120px;
-  top: -50px;
-  margin-top: 15px;
-  padding: 0;
-}
-
-#front .service ul li{
-  font-weight: 300;
-  list-style-type: disc;
-  list-style-position: inside;
-  line-height: 35px;
-}
-
-#front .tool ul{
+/* 사용 툴 */
+.tool ul{
   display: flex;
 }
 
-#front .tool ul li{
+.tool ul li{
+  color: var(--white-color);
+  font-size: 17px;
   margin-right: 20px;
 }
 
 /* 기여도 */
-#front .work .subs>span{
+.work .subs>span{
   margin-right: 5px;
 }
 
-#front .work .line{
+.work .line{
   display: inline-block;
   width: 200px;
   height: 15px;
@@ -675,32 +676,47 @@ section h2.active:before{
   position: relative;
 }
 
-#front .work .bar{
+.work .bar{
   display: inline-block;
   position: absolute;
   left: 0;
   width: 0;
   height: 100%;
-  background: #fad513;
   transition: all 1s;
   z-index: 1000;
 }
 
-#front .work .per{
+.work .per{
   display: inline-block;
   width: 10%;
   transform: translateY(1px);
   text-align: center;
 }
 
+/* 주요기능 */
+.service ul{
+  position: relative;
+  left: 120px;
+  top: -50px;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.service ul li{
+  font-weight: 300;
+  list-style-type: disc;
+  list-style-position: inside;
+  line-height: 35px;
+}
+
 /* 링크 */
-#front .link{
+.link{
   display: flex;
   flex-direction: column;
   border-top: 1px solid #555;
 }
 
-#front .link p{
+.link p{
   margin-bottom: 10px;
   margin-top: 20px;
   font-size: 15px;
@@ -708,12 +724,12 @@ section h2.active:before{
   text-align: center;
 }
 
-#front .link ul{
+.link ul{
   display: flex;
   justify-content: space-between;
 }
 
-#front .link ul li{
+.link ul li{
   font-family: var(--font-accent);
   font-size: 24px;
   width: 150px;
@@ -721,12 +737,11 @@ section h2.active:before{
   border: 2px solid #555;
   text-align: center;
   line-height: 50px;
-  color: #fad513;
   position: relative;
 }
 
 /* link 배경 설정 */
-#front .link ul li:before{
+.link ul li:before{
   content: '';
   display: inline-block;
   position: absolute;
@@ -734,18 +749,38 @@ section h2.active:before{
   bottom: 0;
   width: 100%;
   height: 0%;
-  background: #fad513;
   transition: all 0.4s;
   z-index: -1;
 }
 
-#front .link ul li:hover{
+.link ul li:hover{
   color: var(--black-color);
 }
 
-#front .link ul li:hover:before{
+.link ul li:hover:before{
   height: 100%;
 }
+
+#front1 .number_box{color: #fad513;}
+#front1 .work .bar{background: #fad513;}
+#front1 .link ul li{color: #fad513;}
+#front1 .link ul li:before{background: #fad513;}
+#front1 .link ul li:hover{color: var(--black-color);}
+#front1 .link ul li:hover:before{background: #fad513;}
+
+#front2 .number_box{color: #0779e4;}
+#front2 .work .bar{background: #0779e4;}
+#front2 .link ul li{color: #0779e4;}
+#front2 .link ul li:before{background: #0779e4;}
+#front2 .link ul li:hover{color: var(--black-color);}
+#front2 .link ul li:hover:before{background: #0779e4;}
+
+#front3 .number_box{color: #ff414d;}
+#front3 .work .bar{background: #ff414d;}
+#front3 .link ul li{color: #ff414d;}
+#front3 .link ul li:before{background: #ff414d;}
+#front3 .link ul li:hover{color: var(--black-color);}
+#front3 .link ul li:hover:before{background: #ff414d;}
 
 /* ** 오른쪽 박스 ** */
 #front .desktop{
@@ -805,7 +840,9 @@ section h2.active:before{
   height: 400px;
 }
 
+
 /* ================= 3. PUBLISHING ================= */
+/* 전체박스 */
 #pub{
   width: 5000px;
   height: 6100px;
@@ -814,6 +851,7 @@ section h2.active:before{
   transition: all 0.5s;
 }
 
+/* h2 텍스트 */
 #pub h2{
   margin: 10vh 0 0 25vh;
   padding-left: 25px;
@@ -828,11 +866,10 @@ section h2.active:before{
   color: var(--black-color);
 }
 
+/* 가로 박스 */
 #pub .row_box{
   display: flex;
   margin-left: 500px;
-  position: sticky;
-  top: 0;
 }
 
 #pub .row_box>li{
@@ -842,22 +879,21 @@ section h2.active:before{
   height: 100vh;
   margin: -20px 200px 0 350px;
   padding-left: 50px;
-  
 }
 
-#pub>ul>li .pub_left_box{
+.pub_left_box{
   display: flex;
-  width: 60%;
+  flex-direction: column;
+  width: 50%;
 }
 
-#pub>ul>li .pub_right_box{
-  width: 40%;
+.pub_right_box{
+  width: 50%;
 }
 
 /* ** 왼쪽 박스 ** */
 #pub .number_box{
   display: flex;
-  color: #9c836a;
   font-family: var(--font-accent);
   transform: translateY(20px);
 }
@@ -901,139 +937,44 @@ section h2.active:before{
   border: 1px solid var(--grey-color);
   box-sizing: border-box;
   position: relative;
-  top: 47.5%;
+  top: 213px;
   right: -15%;
-  transform: translateY(-47.5%);
-}
-
-#pub .info_box>div{
-  padding: 5px 25px;
-  display: flex;
-}
-
-#pub .info_box .service{
-  display: block;
-}
-
-#pub .info_box>div:first-of-type{
-  padding-top: 30px;
-}
-
-#pub .info_box>div:last-of-type{
-  padding-bottom: 30px;
 }
 
 /* 설명 박스: 카테고리 */
 #pub h5{
-  width: 100px;
-  height: 35px;
-  text-align: center;
-  line-height: 33px;
-  font-size: 16px;
-  font-weight: 500;
   background: #eee;
-  border: 1px solid #555;
-  box-sizing: border-box;
 }
 
 /* 설명 박스: 설명 */
-#pub .subs{
-  padding: 3px 8px;
-  padding-left: 20px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #999;
-}
-
-#pub .subs strong{
-  color: #9c836a;
-}
-
-#pub .service ul{
-  position: relative;
-  left: 120px;
-  top: -50px;
-  margin-top: 20px;
-  padding: 0;
-}
-
-#pub .service ul li{
-  font-weight: 300;
-  list-style-type: disc;
-  list-style-position: inside;
-  line-height: 35px;
-}
-
-#pub .tool ul{
-  display: flex;
-}
-
 #pub .tool ul li{
-  margin-right: 20px;
+  color: var(--black-color);
+  font-weight: 700;
 }
 
 /* 링크 */
-#pub .link{
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid #555;
-}
-
-#pub .link p{
-  margin-bottom: 10px;
-  margin-top: 20px;
-  font-size: 15px;
-  font-style: italic;
-  text-align: center;
-}
-
-#pub .link ul{
-  display: flex;
-  justify-content: space-between;
-}
-
-#pub .link ul li{
-  font-family: var(--font-accent);
-  font-size: 24px;
-  width: 150px;
-  height: 50px;
-  border: 2px solid #555;
-  text-align: center;
-  line-height: 50px;
-  color: #9c836a;
-  position: relative;
-}
-
 #pub .link ul li:nth-of-type(2){
   margin: 0 5px;
 }
 
 /* link 배경 설정 */
-#pub .link ul li:before{
-  content: '';
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0%;
-  transition: all 0.4s;
-  z-index: -1;
-}
-
 #pub .link ul li:hover{
   color: var(--white-color);
 }
 
-#pub .link ul li:hover:before{
-  height: 100%;
+/* 1~3 컬러 설정 */
+#pub1 .number_box{color: #9c836a;}
+#pub1 .subs strong{color: #9c836a;}
+#pub1 .link ul li{color: #9c836a;}
+#pub1 .link ul li:before{color: #9c836a; background: #9c836a;}
+#pub1 .link ul li:hover:before{
   background: #9c836a;
 }
 
-/* 1~3 컬러 설정 */
 #pub2 .number_box{color: #ffb500;}
 #pub2 .subs strong{color: #ffb500;}
 #pub2 .link ul li{color: #ffb500;}
+#pub2 .link ul li:before{color: #ffb500; background: #ffb500;}
 #pub2 .link ul li:hover:before{
   background: #ffb500;
 }
@@ -1041,9 +982,11 @@ section h2.active:before{
 #pub3 .number_box{color: #35d32f;}
 #pub3 .subs strong{color: #35d32f;}
 #pub3 .link ul li{color: #35d32f;}
+#pub3 .link ul li:before{color: #35d32f; background: #35d32f;}
 #pub3 .link ul li:hover:before{
   background: #35d32f;
 }
+
 
 /* ================= 4. RESPONSIVE ================= */
 #respon{
@@ -1062,11 +1005,11 @@ section h2.active:before{
   margin-top: 8vh;
 }
 
-#respon>ul>li .respon_left_box{
+.respon_left_box{
   width: 50%;
 }
 
-#respon>ul>li .respon_right_box{
+.respon_right_box{
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -1108,18 +1051,18 @@ section h2.active:before{
   background-color: var(--grey-color);
 }
 
-/* pc */
-#respon .bg_pc{
+/* > pc < */
+.bg_pc{
   top: -50px;
   margin-left: 350px;
 }
 
 /* 배경 이미지 */
-#respon .bg_pc>img{
+.bg_pc>img{
   height: 650px;
 }
 
-#respon .bg_pc .work_result{
+.bg_pc .work_result{
   width: 635px;
   height: 360px;
   top: 86px;
@@ -1127,23 +1070,23 @@ section h2.active:before{
 }
 
 /* 결과물 이미지 */
-#respon .work_pc{
+.work_pc{
   width: 100%;
   height: auto;
 }
 
-/* tablet */
-#respon .bg_ta{
+/* > tablet < */
+.bg_ta{
   top: 170px;
   margin-left: -400px;
 }
 
 /* 배경 이미지 */
-#respon .bg_ta>img{
+.bg_ta>img{
   height: 400px;
 }
 
-#respon .bg_ta .work_result{
+.bg_ta .work_result{
   width: 256px;
   height: 363px;
   top: 15px;
@@ -1152,23 +1095,23 @@ section h2.active:before{
 }
 
 /* 결과물 이미지 */
-#respon .work_ta{
+.work_ta{
   width: 100%;
   height: auto;
 }
 
-/* mobile */
-#respon .bg_mo{
+/* > mobile < */
+.bg_mo{
   top: 270px;
   right: 300px;
 }
 
 /* 배경 이미지 */
-#respon .bg_mo>img{
+.bg_mo>img{
   height: 300px;
 }
 
-#respon .bg_mo .work_result{
+.bg_mo .work_result{
   width: 131px;
   height: 270px;
   top: 19px;
@@ -1177,7 +1120,7 @@ section h2.active:before{
 }
 
 /* 결과물 이미지 */
-#respon .work_mo{
+.work_mo{
   width: 100%;
   height: auto;
   z-index: 999;
@@ -1191,14 +1134,14 @@ section h2.active:before{
 #respon .btns li{
   position: relative;
   top: 580px;
+  width: 200px;
+  height: 50px;
   transform: translateX(60%);
   font-family: var(--font-accent);
   font-size: 22px;
-  width: 200px;
-  height: 50px;
-  border: 1px solid #555;
   text-align: center;
   line-height: 50px;
+  border: 1px solid #555;
   background: #b6d7ff;
   color: var(--black-color);
   margin-right: 10px;
@@ -1212,7 +1155,6 @@ section h2.active:before{
   background: #555;
 }
 
-
 /* scss 목업 이미지 */
 .modal{
   display: none;
@@ -1222,8 +1164,8 @@ section h2.active:before{
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.8);
-  z-index: 9000;
   overflow: auto;
+  z-index: 9000;
 }
 
 #respon .btns .device{
@@ -1245,7 +1187,6 @@ iframe{
   color: #fff;
 }
 
-
 /* ** 오른쪽 박스 ** */
 /* 프로젝트 설명 박스 */
 #respon .info_box{
@@ -1254,153 +1195,29 @@ iframe{
   box-sizing: border-box;
 }
 
-#respon .info_box>div{
-  padding: 5px 25px;
-  display: flex;
-}
-
-#respon .info_box .service{
-  display: block;
-}
-
-#respon .info_box>div:first-of-type{
-  padding-top: 30px;
-}
-
-#respon .info_box>div:last-of-type{
-  padding-bottom: 30px;
-}
-
-/* 설명 박스: 카테고리 */
-#respon h5{
-  width: 100px;
-  height: 35px;
-  text-align: center;
-  line-height: 33px;
-  font-size: 16px;
-  font-weight: 500;
-  background: #1c1c1c;
-  border: 1px solid #555;
-  box-sizing: border-box;
-}
-
 /* 설명 박스: 설명 */
-#respon .subs{
-  padding: 3px 8px;
-  padding-left: 20px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #999;
-}
-
-#respon .service ul{
-  position: relative;
-  left: 120px;
-  top: -50px;
-  margin-top: 15px;
-  padding: 0;
-}
-
-#respon .service ul li{
-  font-weight: 300;
-  list-style-type: disc;
-  list-style-position: inside;
-  line-height: 35px;
-}
-
-#respon .tool ul{
-  display: flex;
-}
-
-#respon .tool ul li{
-  margin-right: 20px;
-}
-
 /* 기여도 */
-#respon .work .subs>span{
-  margin-right: 5px;
-}
-
 #respon .work .line{
-  display: inline-block;
   width: 150px;
-  height: 15px;
-  border: 1px solid #666;
-  transform: translateY(3px);
-  position: relative;
 }
 
-/* 기여도 % */
 #respon .work .bar{
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  width: 0%;
-  height: 100%;
   background: #b6d7ff;
-  transition: all 1s;
-  z-index: 1000;
-}
-
-#respon .work .per{
-  display: inline-block;
-  width: 10%;
-  transform: translateY(1px);
-  text-align: center;
 }
 
 /* 링크 */
-#respon .link{
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid #555;
-}
-
-#respon .link p{
-  margin-bottom: 10px;
-  margin-top: 20px;
-  font-size: 15px;
-  font-style: italic;
-  text-align: center;
-}
-
-#respon .link ul{
-  display: flex;
-  justify-content: space-between;
-}
-
 #respon .link ul li{
-  font-family: var(--font-accent);
-  font-size: 24px;
   width: 192px;
-  height: 50px;
-  border: 2px solid #555;
-  text-align: center;
-  line-height: 50px;
   color: #b6d7ff;
-  position: relative;
 }
 
 /* link 배경 설정 */
 #respon .link ul li:before{
-  content: '';
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0%;
   background: #b6d7ff;
-  transition: all 0.4s;
-  z-index: -1;
 }
 
 #respon .link ul li:hover{
   color: var(--black-color);
-}
-
-#respon .link ul li:hover:before{
-  height: 100%;
 }
 
 
@@ -1421,11 +1238,11 @@ iframe{
   margin-top: 8vh;
 }
 
-#mobile>ul>li .mobile_left_box{
+.mobile_left_box{
   width: 32%;
 }
 
-#mobile>ul>li .mobile_right_box{
+.mobile_right_box{
   width: 68%;
   display: flex;
   flex-direction: column;
@@ -1442,157 +1259,33 @@ iframe{
   transform: translateY(30px);
 }
 
-#mobile .info_box>div{
-  padding: 5px 25px;
-  display: flex;
-}
-
-#mobile .info_box .service{
-  display: block;
-}
-
-#mobile .info_box>div:first-of-type{
-  padding-top: 30px;
-}
-
-#mobile .info_box>div:last-of-type{
-  padding-bottom: 30px;
-}
-
-/* 설명 박스: 카테고리 */
-#mobile h5{
-  width: 100px;
-  height: 35px;
-  text-align: center;
-  line-height: 33px;
-  font-size: 16px;
-  font-weight: 500;
-  background: #1c1c1c;
-  border: 1px solid #555;
-  box-sizing: border-box;
-}
-
 /* 설명 박스: 설명 */
-#mobile .subs{
-  padding: 3px 8px;
-  padding-left: 20px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #999;
-}
-
-#mobile .service ul{
-  position: relative;
-  left: 120px;
-  top: -50px;
-  margin-top: 15px;
-  padding: 0;
-}
-
-#mobile .service ul li{
-  font-weight: 300;
-  list-style-type: disc;
-  list-style-position: inside;
-  line-height: 35px;
-}
-
-#mobile .tool ul{
-  display: flex;
-}
-
-#mobile .tool ul li{
-  margin-right: 20px;
-}
-
 /* 기여도 */
 #mobile .work .subs{
   line-height: 30px;
 }
 
-#mobile .work .subs>span{
-  margin-right: 5px;
-}
-
 #mobile .work .line{
-  display: inline-block;
   width: 150px;
-  height: 15px;
-  border: 1px solid #666;
-  transform: translateY(3px);
-  position: relative;
 }
 
-/* 기여도 % */
 #mobile .work .bar{
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  width: 0%;
-  height: 100%;
   background: #ff007a;
-  transition: all 1s;
-  z-index: 1000;
-}
-
-#mobile .work .per{
-  display: inline-block;
-  width: 10%;
-  transform: translateY(1px);
-  text-align: center;
 }
 
 /* 링크 */
-#mobile .link{
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid #555;
-}
-
-#mobile .link p{
-  margin-bottom: 10px;
-  margin-top: 20px;
-  font-size: 15px;
-  font-style: italic;
-  text-align: center;
-}
-
-#mobile .link ul{
-  display: flex;
-  justify-content: space-between;
-}
-
 #mobile .link ul li{
-  font-family: var(--font-accent);
-  font-size: 24px;
-  width: 120px;
-  height: 50px;
-  border: 2px solid #555;
-  text-align: center;
-  line-height: 50px;
+  width: 122px;
   color: #ff007a;
-  position: relative;
 }
 
 /* link 배경 설정 */
 #mobile .link ul li:before{
-  content: '';
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0%;
   background: #ff007a;
-  transition: all 0.4s;
-  z-index: -1;
 }
 
 #mobile .link ul li:hover{
   color: var(--black-color);
-}
-
-#mobile .link ul li:hover:before{
-  height: 100%;
 }
 
 /* ** 오른쪽 박스 ** */
@@ -1662,9 +1355,7 @@ iframe{
 #pland{
   max-width: 1400px;
   margin: 0 auto;
-  /* padding-bottom: 40vh; */
   position: relative;
-  /* background: pink; */
 }
 
 /* *********** PLANNING *********** */
@@ -1672,12 +1363,12 @@ iframe{
   padding-bottom: 30vh;
 }
 
-.planning .plan_btn{
+.plan_btn{
   display: flex;
   margin-top: 60px;
 }
 
-.planning .plan_btn li{
+.plan_btn li{
   font-size: 20px;
   font-weight: 500;
   border: 2px solid var(--grey-color);
@@ -1687,28 +1378,28 @@ iframe{
 }
 
 /* jQuery tab */
-.planning .plan_btn li.selected{
+.plan_btn li.selected{
   background: var(--white-color);
   color: var(--black-color);
   font-weight: 700;
 }
 
 /* jQuery content */
-.planning .plan_cont>li:not(.show){
+.plan_cont>li:not(.show){
   display: none;
 }
 
-.planning .plan_contIn{
+.plan_contIn{
   display: flex;
   width: 100%;
 }
 
-.planning .plan_left_box{
+.plan_left_box{
   width: 70%;
   position: relative;
 }
 
-.planning .plan_right_box{
+.plan_right_box{
   width: 30%;
   height: 585px;
   display: flex;
@@ -1716,18 +1407,17 @@ iframe{
   justify-content: space-evenly;
   align-items: center;
   transform: translateY(45px);
-  /* background: #555; */
 }
 
 /* *** 왼쪽 박스 *** */
 /* 태블릿 이미지 */
-.planning .plan_left_box>img{
+.plan_left_box>img{
   width: 950px;
   height: 650px;
   transform: translate(-15px, 12px);
 }
 
-.planning .plan_img{
+.plan_img{
   position: absolute;
   overflow: scroll;
   overflow-x: hidden;
@@ -1739,35 +1429,35 @@ iframe{
 }
 
 /* 스크롤바 효과 */
-.planning .plan_img::-webkit-scrollbar {
+.plan_img::-webkit-scrollbar {
   width: 12px;
 }
 
-.planning .plan_img::-webkit-scrollbar-thumb {
+.plan_img::-webkit-scrollbar-thumb {
   background-color: #ec4700;
 }
 
-.planning .plan_img::-webkit-scrollbar-track {
+.plan_img::-webkit-scrollbar-track {
   background-color: var(--grey-color);
 }
 
 /* 기획안 이미지 */
-.planning .plan_img img{
+.plan_img img{
   width: 100%;
   height: auto;
 }
 
 /* *** 오른쪽 박스 *** */
-.planning .plan_right_box>li img{
+.plan_right_box>li img{
   height: 400px;
   box-shadow: rgba(210, 210, 210, 0.12) 0px 2px 4px 0px, rgba(210, 210, 210, 0.32) 0px 2px 16px 0px;
 }
 
-.planning .plan_right_box>li.result2 img{
-  height: 240px;
-}
-.planning .plan_right_box>li.result4 img{
+.plan_right_box>li.result2 img{
   height: 450px;
+}
+.plan_right_box>li.result3 img{
+  height: 240px;
 }
 
 /* 버튼 */
@@ -1830,7 +1520,6 @@ iframe{
   max-width: 1400px;
   margin: 0 auto;
   padding-bottom: 30vh;
-  /* background: pink; */
 }
 
 .design_gallery{
@@ -1927,7 +1616,7 @@ iframe{
 }
 
 /* 버튼 영역 */
-.design .btn_list{
+.design_btn{
   position: fixed;
   top: 100px;
   right: 15px;
@@ -1935,20 +1624,20 @@ iframe{
   display: none;
 }
 
-.design .btn_list li{
+.design_btn li{
   color: #999;
 }
 
-.design .btn_list li:not(:last-child):hover{
+.design_btn li:not(:last-child):hover{
   color: var(--white-color);
 }
 
-.design .btn_list .prev, .next{
+.design_btn .prev, .next{
   float: left;
   font-size: 40px;
 }
 
-.design .btn_list .img_page{
+.design_btn .img_page{
   font-size: 20px;
   font-weight: 700;
   text-align: center;
@@ -1958,7 +1647,7 @@ iframe{
 /* ================= FOOTER ================= */
 footer{
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 20vh auto;
   padding-bottom: 5vh;
 }
 
@@ -1975,20 +1664,18 @@ footer{
 
 .footerIn p{
   text-align: center;
+  color: #999;
 }
 
-.footerIn .typing{
+.footerIn #typing{
   font-family: var(--font-medi);
   font-size: 70px;
+  color: var(--white-color);
 }
 
 .footerIn .contact{
   font-size: 20px;
   font-weight: 400;
-  color: #666;
   margin-bottom: 150px;
 }
 
-.footerIn .info{
-  color: #999;
-}

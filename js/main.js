@@ -1,3 +1,4 @@
+
 // onload 함수: 소개문구 animate 효과
 function introTitle(){
   let title = document.querySelectorAll("#intro .title p");
@@ -141,9 +142,12 @@ window.addEventListener("DOMContentLoaded", function(){
       // planning
       guideChange(6);
       headlineChange(5);
-    } else {
+    } else if( scroll >= 14684 && scroll < 15700 ){
       // design
+      guideChange(6);
       headlineChange(6);
+    } else {
+      guideChange(7);
     }
 
   });
@@ -337,22 +341,22 @@ window.addEventListener("DOMContentLoaded", function(){
     $(".img_page span:first-child").text(img_index+1); // 페이지 넘버 바꾸기
     $("html").css({overflowY:"hidden"});
     $(".design .modal_img>li").eq(img_index).show(); // 해당하는 이미지 보여주기
-    $(".design .design_modal").show(); // 모달창 보이기
-    $(".btn_list").show(); // 버튼 보이기
+    $(".design_modal").show(); // 모달창 보이기
+    $(".design_btn").show(); // 버튼 보이기
 
     return false;
   });
 
 
   // close 버튼
-  $(".btn_list .close").click(function(){
+  $(".design_btn .close").click(function(){
     $(".design_modal").hide();
-    $(".btn_list").hide();
+    $(".design_btn").hide();
   });
 
 
   // 다음 버튼
-  $(".btn_list .next").click(function(){
+  $(".design_btn .next").click(function(){
     if( img_index < 8 ){
       $(".design .modal_img>li").eq(img_index).hide(); // 기존 이미지 숨기기
       img_index++;
@@ -363,7 +367,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
 
   // 이전 버튼
-  $(".btn_list .prev").click(() => {
+  $(".design_btn .prev").click(() => {
     if( img_index > 0 ){
       $(".design .modal_img>li").eq(img_index).hide();
       img_index--;
@@ -374,22 +378,14 @@ window.addEventListener("DOMContentLoaded", function(){
 
 
   // ***************** FOOTER *****************
-  // 타이핑 효과
-  let typingTag = document.querySelector(".typing");
-  let typeCont = typingTag.innerHTML;
+  // 타이핑 효과(플러그인 사용)
+  window.instance = new TypeIt("#typing", {
+    speed: 100,
+    strings: "Thanks for watching !",
+    waitUntilVisible: true,
+    loop: true
+  }).go();
 
-  function typingEff(){
-    typingTag.innerHTML = "";
-    
-    for(let i = 0; i < typeCont.length; i++){
-        setTimeout(() => {
-          typingTag.innerHTML += typeCont[i];
-        }, 150 * i);
-    }
-  }
-
-  setInterval(typingEff, 5000);
-  // setTimeout(typingEff, 5000);
 
 
   // 마지막 부분에 top btn 등장
