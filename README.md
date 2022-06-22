@@ -5,6 +5,7 @@
 ***
 
 ## _Info_
+0. loading info
 1. intro
 2. about me
 3. front-end project(3)
@@ -15,6 +16,7 @@
 
 ## _code Info_
 * semantic tag를 통한 HTML 마크업
+* loading 화면: `clientWidth`와 `height()`를 통해 요소 화면 정가운데 배치
 * 메인화면: 반복문(`forEach`)을 사용해 애니메이션 효과 delay 다르게 주기
 * aside: scroll 위치에 따라 메뉴 가이드 바꾸기
 * 스크롤 효과(-> 타이틀 배경 채움, 스킬바 채워짐, 프로젝트 넘버링...)
