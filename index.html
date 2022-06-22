@@ -10,7 +10,19 @@
   <link rel="stylesheet" href="device/css/tablet-mockup.css">
   <link rel="stylesheet" href="device/css/mobile-mockup.css">
 </head>
-<body onload="introTitle();">
+<body>
+  <!-- loading info -->
+  <div id="loading">
+    <div class="loadingIn">
+      <img src="image/logo_ani_white.svg" alt="logo animation">
+      <p>
+        본 포트폴리오는 Chrome 브라우저 및 PC<br>
+        <strong>1920 x 1080(100%) 해상도</strong>에 최적화되어 있습니다 :)
+      </p>
+      <button>OK</button>
+    </div>
+  </div>
+
   <!-- top btn -->
   <div id="top_btn"><a href="#" class="active"></a></div>
   
@@ -42,7 +54,7 @@
         <li>responsive</li>
         <li>mobile</li>
         <li>planning & design</li>
-        <li>Thank you !</li>
+        <li>Thank you :)</li>
       </ul>
       <!-- 아이콘 -->
       <ul class="side_icon">
@@ -81,7 +93,7 @@
     <!--1. about -->
     <section id="about">
       <h2 data-txt="about">about me</h2>
-      <div class="about_me">
+      <div class="aboutIn">
         <!-- left: img, profile, self-intro -->
         <div class="about_left_box">
           <div class="top_cont">
@@ -563,7 +575,7 @@
               <li>Tablet</li>
               <div class="modal">
                 <div class="device">
-                  <!-- Mockup Start -->
+                  <!-- Mockup Start(scss) -->
                   <div class="mockup">
                     <div class="tablet-mockup">
                       <div class="home-btn">
@@ -592,7 +604,7 @@
               <li>Mobile</li>
               <div class="modal">
                 <div class="device">
-                  <!-- Mockup Start -->
+                  <!-- Mockup Start(scss) -->
                   <div class="mockup">
                     <div class="mobile-mockup">
                       <div class="camera">
@@ -778,7 +790,7 @@
               </ul>
               <ul class="plan_right_box">
                 <li class="result2"><img src="image/plan_result2.jpg" alt="planning result"></li>
-                <li class="link link2"><a href="#">Result</a></li>
+                <li class="link link2"><a href="#none">Result</a></li>
               </ul>
             </div>
           </li>

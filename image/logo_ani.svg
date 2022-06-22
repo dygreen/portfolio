@@ -1,0 +1,50 @@
+<svg id="#logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" with="200" height="200" viewBox="0 -100 700 800">
+  <style>
+  <![CDATA[
+    #logo{
+      width: 210px;
+      height: 250px;
+    }
+
+    @keyframes dash-ani{
+      from{ stroke-dashoffset: 1300; opacity: 1;}
+      to{ stroke-dashoffset: 0; opacity: 0;}
+    }
+
+    @keyframes eye-ani{
+      from{ transform: scaleY(1); }
+      to{ transform: scaleY(0.2); }
+    }
+
+    circle{
+      stroke: black;
+      stroke-width: 15px;
+      stroke-dasharray: 1300; 
+      stroke-dashoffset: 0; 
+      fill: transparent;
+      opacity: 0;
+      animation: dash-ani 2.5s infinite;
+    }    
+    
+    .right_eye{
+      transform-origin: 122px 73px;
+      animation: eye-ani 4s alternate infinite;
+    }
+  ]]>
+  </style>
+  
+  <circle cx="120" cy="130" r="200"></circle>
+  <g>
+    <rect x="367.85" y="133.05" width="21.65" height="80.45" transform="translate(34.59 -276.68) rotate(30)"/>
+    <rect x="327.22" y="137.72" width="21.65" height="80.45" transform="translate(-143.63 116.21) rotate(-35.1)"/>
+    <rect x="244.83" y="88.35" width="21.65" height="83.49"/>
+    <rect x="316.76" y="231.04" width="20.91" height="81.72" transform="translate(496.34 -165.86) rotate(90)"/>
+    <rect y="0.99" width="25.5" height="277.9"/>
+    <rect x="163.17" y="1.02" width="25.5" height="277.87"/>
+    <rect x="185.01" y="283" width="24.22" height="188.67" transform="translate(471.67 69.66) rotate(90)"/>
+    <rect x="185.03" y="28.33" width="24.22" height="188.67" transform="translate(217.02 -185.03) rotate(90)"/>
+    <rect x="185.18" y="158.51" width="24.22" height="188.36" transform="translate(347.2 -55.15) rotate(90)"/>
+    <ellipse cx="68.95" cy="73.28" rx="12.38" ry="13.43"/>
+    <ellipse class="right_eye" cx="122.49" cy="73.28" rx="12.38" ry="13.43"/>
+  </g>
+</svg>

@@ -1,4 +1,14 @@
 
+
+// 로딩페이지 화면 정가운데 위치
+function firstLoad(){
+  let loadWidth = window.document.body.clientWidth;
+
+  $("html").css({overflowY:"hidden"});
+  $("#loading").css({"width": loadWidth + 17}); 
+}
+
+
 // onload 함수: 소개문구 animate 효과
 function introTitle(){
   let title = document.querySelectorAll("#intro .title p");
@@ -111,6 +121,17 @@ function appendDesign2(i){
 // =================== ready ===================
 window.addEventListener("DOMContentLoaded", function(){
 
+  
+  firstLoad(); // 로딩페이지
+
+
+  $("#loading button").click(() => {
+    $("#loading").slideUp(700);
+    setTimeout(() => introTitle(), 800);
+    $("html").css({overflowY:"scroll"});
+  });
+
+
   // 왼쪽 guide 내용 바꿈 + 각 섹션 타이틀 채워짐 효과
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
@@ -126,7 +147,7 @@ window.addEventListener("DOMContentLoaded", function(){
       // front
       guideChange(2);
       headlineChange(1);
-    } else if( scroll >= 4834 && scroll < 10890 ){
+    } else if( scroll >= 4550 && scroll < 10890 ){
       // publishing
       guideChange(3);
       headlineChange(2);
@@ -228,7 +249,7 @@ window.addEventListener("DOMContentLoaded", function(){
   // position:sticky로 가로 스크롤 부분 배경 고정
   $(window).scroll(() => {
     let scrollTop = $(window).scrollTop();
-    console.log(scrollTop);
+    // console.log(scrollTop);
 
     if( scrollTop >= 5094 && scrollTop < 10900){
       $("#pub").css({"position":"sticky", "top": "0"});
@@ -325,7 +346,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
 
   // result 버튼 클릭시 모달창 띄우기
-  $(".plan_right_box .link4").click(function(){
+  $(".plan_right_box .link2").click(function(){
     $(".planning .modal").show(); 
     $("html").css({overflowY:"hidden"});
     return false;
@@ -393,9 +414,9 @@ window.addEventListener("DOMContentLoaded", function(){
     let scroll = $(window).scrollTop();
 
     if( scroll >= 15500 ){
-      $("#top_btn a.active").fadeIn();
+      $("#top_btn").fadeIn();
     } else {
-      $("#top_btn a.active").fadeOut();
+      $("#top_btn").fadeOut();
     }
   });
 
