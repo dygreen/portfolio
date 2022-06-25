@@ -18,7 +18,7 @@
   --black-color: #0a0a0a;
   --white-color: #fafafa;
   --grey-color: #434343;
-  --main-color: #1859ff;
+  --main-color: #24e0a6;
   /* font */
   --font-accent: 'MinSans-Black', sans-serif;
   --font-medi: 'MinSans-Bold', sans-serif;
@@ -54,10 +54,14 @@ body{
 }
 
 #loading p{
-  font-size: 24px;
+  font-size: 23px;
   text-align: center;
   color: #eee;
-  line-height: 42px;
+  line-height: 40px;
+}
+
+#loading strong{
+  color: var(--main-color);
 }
 
 #loading button{
@@ -65,8 +69,8 @@ body{
   font-size: 30px;
   width: 200px;
   height: 60px;
-  color: var(--white-color);
   background: var(--main-color);
+  color: var(--black-color);
   cursor: pointer;
   border: none;
   transform: translate(-10px,30px);
@@ -74,7 +78,7 @@ body{
 }
 
 #loading button:hover{
-  background: #81B214;
+  background: #ffea00;
 }
 
 /* top btn */
@@ -266,8 +270,8 @@ aside{
 
 /* 강조 텍스트(개발자) */
 #intro .title p:nth-child(2){
-  color: var(--white-color);
-  -webkit-text-stroke: none;
+  color: var(--main-color);
+  -webkit-text-stroke: var(--main-color);
 }
 
 #intro .title span{
@@ -306,7 +310,7 @@ nav ul li{
 }
 
 nav ul li:hover{
-  color: var(--white-color);
+  color: var(--black-color);
 }
 
 /* nav 배경 hover효과 */
@@ -318,7 +322,7 @@ nav ul li::before{
   bottom: 0;
   width: 100%;
   height: 0%;
-  background: var(--main-color);
+  background: #ffea00;
   transition: all 0.4s;
   z-index: -1;
 }
@@ -443,7 +447,7 @@ section h2.active::before{
 
 .self_intro p{
   border-top: 2px solid #333;
-  padding: 50px;
+  padding: 50px 0px;
   color: #eee;
   line-height: 22px;
 }
@@ -809,25 +813,27 @@ h5{
   height: 100%;
 }
 
+#front .link ul li:hover{
+  color: var(--black-color);
+}
+
+/* 1~3 컬러 설정  */
 #front1 .number_box{color: #fad513;}
 #front1 .work .bar{background: #fad513;}
 #front1 .link ul li{color: #fad513;}
 #front1 .link ul li::before{background: #fad513;}
-#front1 .link ul li:hover{color: var(--black-color);}
 #front1 .link ul li:hover::before{background: #fad513;}
 
 #front2 .number_box{color: #0779e4;}
 #front2 .work .bar{background: #0779e4;}
 #front2 .link ul li{color: #0779e4;}
 #front2 .link ul li::before{background: #0779e4;}
-#front2 .link ul li:hover{color: var(--black-color);}
 #front2 .link ul li:hover::before{background: #0779e4;}
 
 #front3 .number_box{color: #ff414d;}
 #front3 .work .bar{background: #ff414d;}
 #front3 .link ul li{color: #ff414d;}
 #front3 .link ul li::before{background: #ff414d;}
-#front3 .link ul li:hover{color: var(--black-color);}
 #front3 .link ul li:hover::before{background: #ff414d;}
 
 
@@ -894,10 +900,10 @@ h5{
 /* 전체박스 */
 #pub{
   width: 5000px;
-  height: 6100px;
+  height: 5100px;
   background: var(--white-color);
   color: var(--black-color);
-  transition: all 0.5s;
+  transition: all 0.5s linear;
 }
 
 /* h2 텍스트 */
@@ -1016,19 +1022,16 @@ h5{
 #pub1 .subs strong{color: #9c836a;}
 #pub1 .link ul li{color: #9c836a;}
 #pub1 .link ul li::before{color: #9c836a; background: #9c836a;}
-#pub1 .link ul li:hover::before{background: #9c836a;}
 
 #pub2 .number_box{color: #ffb500;}
 #pub2 .subs strong{color: #ffb500;}
 #pub2 .link ul li{color: #ffb500;}
 #pub2 .link ul li::before{color: #ffb500; background: #ffb500;}
-#pub2 .link ul li:hover::before{background: #ffb500;}
 
 #pub3 .number_box{color: #35d32f;}
 #pub3 .subs strong{color: #35d32f;}
 #pub3 .link ul li{color: #35d32f;}
 #pub3 .link ul li::before{color: #35d32f; background: #35d32f;}
-#pub3 .link ul li:hover::before{background: #35d32f;}
 
 
 /* ================= 4. RESPONSIVE ================= */
@@ -1174,7 +1177,7 @@ h5{
   display: flex;
 }
 
-#respon .btns li{
+#respon .btnOne{
   position: relative;
   top: 580px;
   width: 200px;
@@ -1193,7 +1196,7 @@ h5{
   z-index: 100;
 }
 
-#respon .btns li:hover{
+#respon .btnOne:hover{
   color: var(--white-color);
   background: #555;
 }
@@ -1452,7 +1455,7 @@ iframe{
 
 /* *** 왼쪽 박스 *** */
 /* 태블릿 이미지 */
-.plan_left_box>img{
+.plan_bg img{
   width: 950px;
   height: 650px;
   transform: translate(-15px, 12px);
@@ -1710,7 +1713,7 @@ footer{
 .footerIn #typing{
   font-family: var(--font-medi);
   font-size: 70px;
-  color: var(--white-color);
+  color: var(--main-color);
 }
 
 .footerIn .contact{
