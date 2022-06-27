@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <title>꾸준한 개발자 박도연입니다.</title>
   <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="device/css/tablet-mockup.css">
   <link rel="stylesheet" href="device/css/mobile-mockup.css">
+  <link rel="shortcut icon" type="image/x-icon" href="http://dygreen.dothome.co.kr/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- loading info -->
@@ -108,7 +109,7 @@
           <div class="bottom_cont">
             <div class="self_intro">
               <p>
-                <strong>1일 1기록으로 꾸준히 공부하는 개발자 박도연입니다.</strong><br>
+                <strong>1일 1커밋으로 꾸준히 공부하는 개발자 박도연입니다.</strong><br>
                 마케팅 콘텐츠 제작과 기획업무를 거치며 시각적인 정보를 제공하는 것에 흥미를 갖게 되었습니다.<br>
                 진로를 고민하다 우연히 접한 프론트엔드 직무에 관심이 생겨 꾸준히 공부해오고 있습니다.<br>
                 현재 React에 중점을 두고 공부하고 있으며, 새로운 기술/지식 등에 있어 적극적인 자세로 임하겠습니다.
@@ -244,24 +245,24 @@
             </li>
           </ul>
           <ul class="front_right_box">
-            <div class="desktop">
+            <li class="desktop">
               <img src="image/desktop.png" alt="desktop">
               <div class="work_result">
                 <img src="image/front1.gif" alt="front work">
               </div>
-            </div>
+            </li>
           </ul>
         </li>
         
         <!-- 2-2 WEARWEATHER -->
         <li id="front2">
           <ul class="front_left_box">
-            <div class="notebook">
+            <li class="notebook">
               <img src="image/notebook.png" alt="notebook">
               <div class="work_result">
                 <img src="image/front2.gif" alt="front work">
               </div>
-            </div>
+            </li>
           </ul>
           <ul class="front_right_box">
             <li class="number_box">
@@ -300,7 +301,7 @@
                 <ul class="subs">
                   <li>도시 이름을 검색하면 현재 날씨+시간 보여줌</li>
                   <li>현재 기온에 맞는 배경 이미지(4계절) 변화</li>
-                  <li>현재 기온에 맞는 옷차림 추천(총 8가지 기온)</li>
+                  <li>현재 기온에 맞는 옷차림 추천(총 8가지 추천)</li>
                 </ul>
               </div>
               <div class="link">
@@ -331,7 +332,6 @@
                 <ul class="subs">
                   <li>jQuery</li>
                   <li>HTML/CSS</li>
-                  <li>SCSS</li>
                 </ul>
               </div>
               <div class="work">
@@ -351,7 +351,7 @@
               <div class="service">
                 <h5>주요기능</h5>
                 <ul class="subs">
-                  <li>상품을 drag로 장바구니에 담기</li>
+                  <li>상품을 drag해 장바구니에 담기(+중복상품 알림)</li>
                   <li>검색창 입력값과 일치하는 상품만 보여줌</li>
                   <li>로그인 및 구매자 정보 입력 모달창</li>
                   <li>장바구니 상품 수량에 따른 영수증 발행</li>
@@ -368,12 +368,12 @@
             </li>
           </ul>
           <ul class="front_right_box">
-            <div class="desktop">
+            <li class="desktop">
               <img src="image/desktop.png" alt="desktop">
               <div class="work_result">
                 <img src="image/front3.gif" alt="front work">
               </div>
-            </div>
+            </li>
           </ul>
         </li>
       </ul>
@@ -444,7 +444,7 @@
                 <div class="numbering">02</div>
                 <div class="title">
                   <p class="main">Auntieannes</p>
-                  <p class="sub">: 직접 디자인 작업한 결과물을 페이지로 구현</p>
+                  <p class="sub">: 디자인 작업한 결과물을 페이지로 구현</p>
                 </div>
               </li>
               <li class="work_result">
@@ -550,7 +550,7 @@
       <ul>
         <!-- 4-1 WEB TREND -->
         <li id="respon1">
-          <ul class="respon_left_box">
+          <div class="respon_left_box">
             <ul class="device">
               <li class="bg_pc">
                 <img src="image/desktop.png" alt="desktop">
@@ -572,8 +572,8 @@
               </li>
             </ul>
             <ul class="btns">
-              <li>Tablet</li>
-              <div class="modal">
+              <li class="btnOne">Tablet</li>
+              <li class="modal">
                 <div class="device">
                   <!-- Mockup Start(scss) -->
                   <div class="mockup">
@@ -600,9 +600,9 @@
                   <!-- Mockup End -->
                 </div>
                 <a href="#" class="close"><img src="image/close.png" alt="close"></a>
-              </div>
-              <li>Mobile</li>
-              <div class="modal">
+              </li>
+              <li class="btnOne">Mobile</li>
+              <li class="modal">
                 <div class="device">
                   <!-- Mockup Start(scss) -->
                   <div class="mockup">
@@ -626,12 +626,12 @@
                   <!-- Mockup End -->
                 </div>
                 <a href="#" class="close"><img src="image/close.png" alt="close"></a>
-              </div>
-              <li><a href="https://dygreen.github.io/responsive_web/index.html" target="_blank">PC</a></li>
+              </li>
+              <li class="btnOne"><a href="https://dygreen.github.io/responsive_web/index.html" target="_blank">PC</a></li>
             </ul>
-          </ul>
-          <ul class="respon_right_box">
-            <li class="info_box">
+          </div>
+          <div class="respon_right_box">
+            <div class="info_box">
               <div class="tool">
                 <h5>사용 툴</h5>
                 <ul class="subs">
@@ -669,8 +669,8 @@
                   <li><a href="https://prickle-turn-785.notion.site/WEB-TREND-84e33ddcac5645ee849ba3b68c0b6f4a" target="_blank">Notion</a></li>
                 </ul>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </li>
       </ul>
     </section>
@@ -768,7 +768,9 @@
           <li class="plan_cont1 show">
             <div class="plan_contIn">
               <ul class="plan_left_box">
-                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_bg">
+                  <img src="image/tablet2.png" alt="tablet img">
+                </li>
                 <li class="plan_img">
                   <img src="image/planning1.png" alt="planning img">
                 </li>
@@ -783,7 +785,9 @@
           <li class="plan_cont2">
             <div class="plan_contIn">
               <ul class="plan_left_box">
-                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_bg">
+                  <img src="image/tablet2.png" alt="tablet img">
+                </li>
                 <li class="plan_img">
                   <img src="image/planning2.png" alt="planning img">
                 </li>
@@ -795,17 +799,19 @@
             </div>
           </li>
           <!-- 모달창 -->
-          <div class="modal">
+          <li class="modal">
             <div class="work_result">
               <img src="image/plan_result2-1.jpg" alt="planning work result">
             </div>
             <a href="#" class="close"><img src="image/close.png" alt="close"></a>
-          </div>
+          </li>
           <!-- 3 -->
           <li class="plan_cont3">
             <div class="plan_contIn">
               <ul class="plan_left_box">
-                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_bg">
+                  <img src="image/tablet2.png" alt="tablet img">
+                </li>
                 <li class="plan_img">
                   <img src="image/planning3.png" alt="planning img">
                 </li>
@@ -820,7 +826,9 @@
           <li class="plan_cont4">
             <div class="plan_contIn">
               <ul class="plan_left_box">
-                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_bg">
+                  <img src="image/tablet2.png" alt="tablet img">
+                </li>
                 <li class="plan_img">
                   <img src="image/planning4.png" alt="planning img">
                 </li>
@@ -835,9 +843,11 @@
           <li class="plan_cont5">
             <div class="plan_contIn">
               <ul class="plan_left_box">
-                <img src="image/tablet2.png" alt="tablet img">
+                <li class="plan_bg">
+                  <img src="image/tablet2.png" alt="tablet img">
+                </li>
                 <li class="plan_img">
-                  <img src="image/planning1.png" alt="planning img">
+                  <img src="image/planning5.png" alt="planning img">
                 </li>
               </ul>
               <ul class="plan_right_box">
@@ -888,7 +898,7 @@
   <!-- Script Source -->
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
-  <!-- <script src="js/prefixfree.min.js"></script> -->
+  <script src="js/prefixfree.min.js"></script>
   <script src="js/typeit.min.js"></script>
   <script src="js/main.js"></script>
 </body>

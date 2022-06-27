@@ -4,8 +4,20 @@
 function firstLoad(){
   let loadWidth = window.document.body.clientWidth;
 
-  $("html").css({overflowY:"hidden"});
-  $("#loading").css({"width": loadWidth + 17}); 
+  document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+  document.getElementById("loading").style.width = loadWidth + 17;
+}
+
+
+// 로딩페이지 슬라이드업 + 인트로 세팅
+function loadingSet(){
+  let loadingBtn = document.querySelector("#loading button");
+
+  loadingBtn.addEventListener("click", () => {
+    $("#loading").slideUp(700);
+    setTimeout(() => introTitle(), 750);
+    document.getElementsByTagName("html")[0].style.overflowY = "scroll";
+  });
 }
 
 
@@ -14,7 +26,7 @@ function introTitle(){
   let title = document.querySelectorAll("#intro .title p");
   let i = 0;
 
-  // 각 요소별 delay를 다르게 주기 위한 반복문
+  // 각각 delay를 다르게 주기 위한 반복문
   for( let a = 1; a <= title.length; a++ ){
     let titleText = document.querySelector(`#intro .title .t1-${a}`);
     let slideUp = [
@@ -32,10 +44,14 @@ function introTitle(){
 }
 
 
-// gnb: 배경/텍스트 변화주는 함수
+// gnb: 배경/텍스트 color 변화주는 함수
 function gnbChange(color){
-  $(".top_gnbIn img").attr("src",`image/logo_${color}.svg`);
-  $(".top_gnbIn ul li").css({"color":`var(--${color}-color)`});
+  let topLogo = document.getElementsByClassName("top_gnbIn")[0];
+  let topLogo_img = topLogo.getElementsByTagName("img")[0];
+  let topLogo_ul = topLogo.getElementsByTagName("ul")[0];
+
+  topLogo_img.setAttribute("src",`image/logo_${color}.svg`);
+  topLogo_ul.style.color = `var(--${color}-color)`;
 }
 
 
@@ -52,30 +68,34 @@ document.querySelectorAll("#top_gnb li a, nav ul li a").forEach(li => {
 
 // aside: scroll위치에 따라 guide내용을 바꾸는 함수
 function guideChange(i){
-  let guide_list = $(".side_guide>li");
-  guide_list.removeClass("guide_show");
-  guide_list.eq(i).addClass("guide_show");
+  let guide_list = document.querySelectorAll(".side_guide>li");
+
+  guide_list.forEach(guide => guide.classList.remove("guide_show"));
+  guide_list[i].classList.add("guide_show");
 }
 
 
 // 1~6 각 섹션 타이틀 채움 효과를 주는 함수
 function headlineChange(i){
-  let headline = $("section h2");
-  headline.removeClass("active");
-  headline.eq(i).addClass("active");
+  let headline = document.querySelectorAll("section h2");
+
+  headline.forEach(head => head.classList.remove("active"));
+  headline[i].classList.add("active");
 }
 
 
 // front: 프로젝트 넘버링이 움직이는 효과를 주는 함수
 function numMoving(i){
-  let number_box = $(`#front${i} .number_box`);
-  number_box.css({"opacity":"1", "margin":"0px"});
+  let number_box = document.querySelector(`#front${i} .number_box`);
+
+  number_box.style.opacity = 1;
+  number_box.style.margin = "0px";
 }
 
 
 // front: 프로젝트 기여도 %를 채워주는 함수
 function workFill(i){
-  $(`#front${i} .work .bar`).css({"width": "100%"});
+  document.querySelector(`#front${i} .work .bar`).style.width = "100%";
 }
 
 
@@ -97,11 +117,9 @@ function openBrWindow(theURL, windName, features){
 function designGall(){
   for(let i = 1; i <= 9; i++){
     appendDesign(i);
-    appendDesign2(i)
+    appendDesign2(i);
   }
 }
-designGall();
-
 
 // design: 썸네일 이미지를 붙여줄 함수
 function appendDesign(i){
@@ -121,15 +139,8 @@ function appendDesign2(i){
 // =================== ready ===================
 window.addEventListener("DOMContentLoaded", function(){
 
-  
   firstLoad(); // 로딩페이지
-
-
-  $("#loading button").click(() => {
-    $("#loading").slideUp(700);
-    setTimeout(() => introTitle(), 800);
-    $("html").css({overflowY:"scroll"});
-  });
+  loadingSet(); // 인트로 세팅
 
 
   // 왼쪽 guide 내용 바꿈 + 각 섹션 타이틀 채워짐 효과
@@ -147,23 +158,23 @@ window.addEventListener("DOMContentLoaded", function(){
       // front
       guideChange(2);
       headlineChange(1);
-    } else if( scroll >= 4550 && scroll < 10890 ){
+    } else if( scroll >= 4550 && scroll < 10190 ){
       // publishing
       guideChange(3);
       headlineChange(2);
-    } else if( scroll >= 10890 && scroll < 12224 ){
+    } else if( scroll >= 10190 && scroll < 11090 ){
       // responsive
       guideChange(4);
       headlineChange(3);
-    } else if( scroll >= 12224 && scroll < 13493){
+    } else if( scroll >= 11090 && scroll < 12290){
       // mobile
       guideChange(5);
       headlineChange(4);
-    } else if( scroll >= 13493 && scroll < 14684 ){
+    } else if( scroll >= 12290 && scroll < 13490 ){
       // planning
       guideChange(6);
       headlineChange(5);
-    } else if( scroll >= 14684 && scroll < 15700 ){
+    } else if( scroll >= 13490 && scroll < 14508 ){
       // design
       guideChange(6);
       headlineChange(6);
@@ -183,6 +194,7 @@ window.addEventListener("DOMContentLoaded", function(){
     } else {
       $("#top_gnb").slideUp();
     }
+
   });
 
 
@@ -199,6 +211,7 @@ window.addEventListener("DOMContentLoaded", function(){
     } else {
       $(".bar").css({"width": "0%"});
     }
+
   });
 
 
@@ -217,11 +230,12 @@ window.addEventListener("DOMContentLoaded", function(){
       numMoving(3);
       workFill(3);
     }
+
   });
 
 
   // ***************** PUBLISING *****************
-  // 로고 이미지 검정, gnb color 바꾸기
+  // 로고 이미지, gnb color 바꾸기
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
 
@@ -230,6 +244,7 @@ window.addEventListener("DOMContentLoaded", function(){
     } else {
       gnbChange('white');
     }
+
   });
 
 
@@ -243,15 +258,16 @@ window.addEventListener("DOMContentLoaded", function(){
       } else {
       $(".row_box>li").css("left", -slide);
     }
+
   });
 
 
   // position:sticky로 가로 스크롤 부분 배경 고정
   $(window).scroll(() => {
     let scrollTop = $(window).scrollTop();
-    // console.log(scrollTop);
+    console.log(scrollTop);
 
-    if( scrollTop >= 5094 && scrollTop < 10900){
+    if( scrollTop >= 5094 && scrollTop < 10043){
       $("#pub").css({"position":"sticky", "top": "0"});
     } else {
       $("#pub").css({"position":"relative", "top": "0"});
@@ -259,7 +275,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
 
     // publishing -> responsive 원상태로 변경(배경,텍스트,gnb)
-    if( scrollTop > 10811 ){
+    if( scrollTop > 10043 ){
       $("#pub").css({"background":"var(--black-color)", "color":"var(--white-color)"});
       gnbChange('white');
     } else {
@@ -269,27 +285,31 @@ window.addEventListener("DOMContentLoaded", function(){
   });
 
 
-// ***************** RESPONSIVE *****************
+  // ***************** RESPONSIVE *****************
   // 각 디바이스 버튼 클릭시 모달창 보여주기
-  $("#respon .btns>li:not(:last-child)").click(function(){
+  $("#respon .btnOne:not(:last-child)").click(function(){
     $(this).next().show(); 
     $("html").css({overflowY:"hidden"});
     return false;
   });
 
-  $(".close").click(function(){
+
+  // 닫기 버튼 클릭시 모달창 닫기
+  $(".close").click(() => {
     $(".modal").hide(); 
     $("html").css({"overflow-y":"scroll"}); 
   });
 
   
   // 검정 모달 배경 클릭시 닫기
-  $(".modal").click(function(e){
-    $("html").css({"overflow-y":"scroll"});
+  $(".modal").click((e) => {
+
     if(e.target == e.currentTarget) {
       $(".modal").hide();
+      $("html").css({"overflow-y":"scroll"});
     }
     return false;
+
   });
 
 
@@ -297,7 +317,7 @@ window.addEventListener("DOMContentLoaded", function(){
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
 
-    if ( scroll > 11247 ){
+    if ( scroll > 10205 ){
       $("#respon .work .bar").css({"width": "100%"});
     } else {
       $("#respon .work .bar").css({"width": "0%"});
@@ -306,10 +326,12 @@ window.addEventListener("DOMContentLoaded", function(){
   });
 
 
+  // ***************** MOBILE *****************
+  // 스킬바 + 결과물 이미지 애니메이션
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
     
-    if ( scroll > 12454 ){
+    if ( scroll > 11290 ){
       // skill바 채워지는 효과
       $("#mobile .work .bar").css({"width": "100%"});
       // 결과물 이미지 애니메이션
@@ -328,32 +350,35 @@ window.addEventListener("DOMContentLoaded", function(){
 
   // ***************** PLANNING *****************
   // tab menu
-  let button = $(".planning .plan_btn>li");
-  let content = $(".planning .plan_cont>li");
+  let button = document.querySelectorAll(".planning .plan_btn>li");
+  let content = document.querySelectorAll(".planning .plan_cont>li:not(.modal)");
   
   for(let i = 0; i < button.length; i++){
-    button.eq(i).click(function(){
+    button[i].addEventListener("click", () => {
       tab(i);
     });
   }
-  
+
   function tab(i){
-    button.removeClass("selected");
-    button.eq(i).addClass("selected");
-    content.removeClass("show");
-    content.eq(i).addClass("show");
+    button.forEach(e => e.classList.remove("selected"));
+    button[i].classList.add("selected");
+    content.forEach(e => e.classList.remove("show"));
+    content[i].classList.add("show");
   }
 
 
   // result 버튼 클릭시 모달창 띄우기
-  $(".plan_right_box .link2").click(function(){
-    $(".planning .modal").show(); 
-    $("html").css({overflowY:"hidden"});
+  document.querySelector(".plan_right_box .link2").addEventListener("click", () => {
+    document.querySelector(".planning .modal").style.display = "block";
+    document.getElementsByTagName("html")[0].style.overflowY = "hidden";
     return false;
   });
 
 
   // ***************** DESIGN *****************
+  designGall(); // 썸네일 이미지 세팅
+
+
   // 썸네일 이미지 클릭시 모달창 띄우기
   $(".design_list li").click(function(){
     img_index = $(this).index();
@@ -408,16 +433,16 @@ window.addEventListener("DOMContentLoaded", function(){
   }).go();
 
 
-
-  // 마지막 부분에 top btn 등장
+  // 페이지 마지막에 top btn 등장
   $(window).scroll(() => {
     let scroll = $(window).scrollTop();
 
-    if( scroll >= 15500 ){
+    if( scroll >= 14808 ){
       $("#top_btn").fadeIn();
     } else {
       $("#top_btn").fadeOut();
     }
+    
   });
 
   // top btn 클릭시 부드럽게 올라가는

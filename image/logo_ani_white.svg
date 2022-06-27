@@ -13,7 +13,7 @@
     }
 
     circle{
-      stroke: #1859ff;
+      stroke: #ffea00;
       stroke-width: 15px;
       stroke-dasharray: 1300; 
       stroke-dashoffset: 0; 
