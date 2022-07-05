@@ -550,7 +550,7 @@ section h2.active::before{
 
 .sub_skill{
   width: 88%;
-  height: 80px;
+  height: 100px;
   border: 1px solid #555;
   background: #333;
   margin-top: 20px;
